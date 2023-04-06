@@ -28,4 +28,3 @@ The other goals are similar to every other goal for this first year: being rigor
 + The program has to display the image in a window
 + The management of your window must remain smooth (changing to another window, minimizing, and so forth)
 + Pressing `ESC` must close the window and quit the program in a clean way
-+ 
