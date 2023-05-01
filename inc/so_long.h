@@ -20,6 +20,7 @@
 #include "../libft/includes/libft.h"
 #include "../mlx_linux/mlx.h"
 #include <X11/keysym.h>
+#include <X11/X.h>
 #include <math.h>
 #include <stdlib.h>
 
