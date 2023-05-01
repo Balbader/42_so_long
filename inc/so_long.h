@@ -13,10 +13,15 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# define WINDOW_WIDTH 1280
+# define WINDOW_HEIGHT 720
+# define MLX_ERROR 1
+
 #include "../libft/includes/libft.h"
 #include "../mlx_linux/mlx.h"
 #include <X11/keysym.h>
 #include <math.h>
+#include <stdlib.h>
 
 typedef struct s_data
 {
