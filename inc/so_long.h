@@ -13,4 +13,9 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+#include "../libft/includes/libft.h"
+#include "../mlx_linux/mlx.h"
+#include <X11/keysym.h>
+#include <math.h>
+
 #endif
