@@ -38,7 +38,7 @@ BUILD_DIR			:=	.build
 OBJS        		:=	$(SRCS:$(SRCS_DIR)/%.c=$(BUILD_DIR)/%.o)
 DEPS        		:=	$(OBJS:.o=.d)
 
-CC					:=	cc
+CC					:=	clang
 CFLAGS				:=	-Wall -Wextra -Werror -g3
 IFLAGS				:=	$(addprefix -I, $(INC_DIR))
 LDFLAGS				:=	-Lmlx_linux -lmlx_Linux -L$(LIBMLX) -Imlx_linux -lXext -lX11 -lm -lz
