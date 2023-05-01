@@ -1,5 +1,18 @@
-NAME				:=	so_long
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: baalbade <baalbade@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/05/01 08:42:07 by baalbade          #+#    #+#              #
+#    Updated: 2023/05/01 08:42:10 by baalbade         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-CC					:=	Clang
+NAME				=	so_long
 
-CFLAGS				:=	-Wall -Wextra -Werror -g3
+CC					=	Clang
+
+CFLAGS				=	-Wall -Wextra -Werror -g3
+
