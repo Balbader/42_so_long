@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 # NAME ########################################################################
-NAME=so_long
+NAME				:=	so_long
 
 # SRCS FILES ##################################################################
 
@@ -27,40 +27,35 @@ LIBMLX				:=	./mlx_linux/libmlx_Linux.a
 LIBMLX_TARGET		:=	./mlx_linux/
 MAKE_LIBMLX			:=	make -C $(LIBMLX_TARGET)
 
-LDFLAGS				:=	-Lmlx_linux -lmlx_Linux -L$(LIBMLX) -Imlx_linux -lXext -lX11 -lm -lz
-
 SRCS_DIR			:=	./srcs/
 INC_DIR				:=	./inc/ \
 						./libft/includes/
 
-SRCS				:=	\
-						main.c
+SRCS				:=	main.c
 SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)
 
 BUILD_DIR			:=	.build
-OBJS				:=	$(SRCS:$(SRCS_DIR)/%.c=$(BUILD_DIR)/%.o)
-DEPS				:=	$(OBJS:.o=.d)
+OBJS        		:=	$(SRCS:$(SRCS_DIR)/%.c=$(BUILD_DIR)/%.o)
+DEPS        		:=	$(OBJS:.o=.d)
 
 CC					:=	Clang
 CFLAGS				:=	-Wall -Wextra -Werror -g3
 IFLAGS				:=	$(addprefix -I, $(INC_DIR))
-LDLIBS				:=	$(addprefix -l:, $(LIBS))
+LDFLAGS				:=	-Lmlx_linux -lmlx_Linux -L$(LIBMLX) -Imlx_linux -lXext -lX11 -lm -lz
 
 # USTENSILS	###################################################################
 RM					:=	rm -rf
-MAKEFLAGS			+=	--no-print-directory
-DIR_DUP				:=	mkdir -p $(@D)
+DIR_DUP				=	mkdir -p $(@D)
 
 # RECIPES #####################################################################
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(LIBMLX) $(OBJS)
-	cd ./mlx_linux && ./configure && $(MAKE)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LDFLAGS)
+	$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $(NAME)
 
-.c.o:
+$(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
 	$(DIR_DUP)
-	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(IFLAGS) -c -o $@ $<
 
 $(LIBFT):
 	$(MAKE_LIBFT)
