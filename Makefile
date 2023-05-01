@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 # NAME ########################################################################
-NAME				:=	so_long
+NAME=so_long
 
 # SRCS FILES ##################################################################
 
@@ -19,13 +19,20 @@ NAME				:=	so_long
 
 
 # INGREDIENTS #################################################################
-LIBS				:=	libft.a
+LIBFT				:=	./libft/libft.a
+LIBFT_TARGET		:=	./libft/
+MAKE_LIBFT			:=	make -C $(LIBFT_TARGET)
 
-LIBS_TARGET			:=	./libft/libft.a
-INCS				:=	./inc/ \
-						./libft/includes/
+LIBMLX				:=	./mlx_linux/libmlx_Linux.a
+LIBMLX_TARGET		:=	./mlx_linux/
+MAKE_LIBMLX			:=	make -C $(LIBMLX_TARGET)
+
+LDFLAGS				:=	-Lmlx_linux -lmlx_Linux -L$(LIBMLX) -Imlx_linux -lXext -lX11 -lm -lz
 
 SRCS_DIR			:=	./srcs/
+INC_DIR				:=	./inc/ \
+						./libft/includes/
+
 SRCS				:=	\
 						main.c
 SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)
@@ -36,45 +43,42 @@ DEPS				:=	$(OBJS:.o=.d)
 
 CC					:=	Clang
 CFLAGS				:=	-Wall -Wextra -Werror -g3
-IFLAGS				:=	$(addprefix -I, $(INCS))
-LDFLAGS				:=	$(addprefix -L, $(dir $(LIBS_TARGET)))
+IFLAGS				:=	$(addprefix -I, $(INC_DIR))
 LDLIBS				:=	$(addprefix -l:, $(LIBS))
 
 # USTENSILS	###################################################################
-RM					:=	rm
-RMFLAGS				:=	-r -f
+RM					:=	rm -rf
 MAKEFLAGS			+=	--no-print-directory
 DIR_DUP				:=	mkdir -p $(@D)
-
-# COLORS ######################################################################
-RED					:=	'\033[0;31m'
-GREEN				:=	'\033[1;32m'
-ORANGE				:=	'\033[0;33m'
-YELLOW				:=	'\033[1;33m'
-NC					:=	'\033[0m'
 
 # RECIPES #####################################################################
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
-	@echo $(GREEN) "--> $(NAME) COMPILED !" $(NC)" \n"
+$(NAME): $(LIBFT) $(LIBMLX) $(OBJS)
+	cd ./mlx_linux && ./configure && $(MAKE)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LDFLAGS)
 
-%o: %.c
-	@echo $(YELLOW) "COMPILING:" $(NC) $<
+.c.o:
 	$(DIR_DUP)
-	$(CC) $(CFLAGS) $(IFLAGS) -Imlx_linux -03 -c -o $@ $<
-	@echo $(GREEN) "CREATED:" $(NC) $@ $(NC) "\n"
+	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
+
+$(LIBFT):
+	$(MAKE_LIBFT)
+
+$(LIBMLX):
+	$(MAKE_LIBMLX)
 
 -include $(DEPS)
 
 clean:
-	$(RM) $(RMFLAGS) $(BUILD_DIR) $(DEPS)
+	$(MAKE_LIBFT) clean
+	$(MAKE_LIBMLX) clean
+	$(RM) $(BUILD_DIR) $(DEPS)
 
 fclean:
 	$(MAKE) clean
-	$(RM) $(RMFLAGS) $(NAME)
-	@echo $(GREEN) "Successfully removed:" $(NC) $(NAME) $(NC) "\n"
+	$(MAKE_LIBFT) fclean
+	$(RM) $(NAME)
 
 re:
 	$(MAKE) fclean
@@ -84,4 +88,4 @@ re:
 #   SPEC   #
 ############
 .PHONY: all clean fclean re
-.SILENT:
+# .SILENT:
