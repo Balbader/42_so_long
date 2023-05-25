@@ -26,10 +26,10 @@ int	main(void)
 		free(win);
 		return (MLX_ERROR);
 	}
-	while (1)
-		;
+	mlx_loop(mlx);
 	mlx_destroy_window(mlx, win);
 	mlx_destroy_display(mlx);
 	free(mlx);
+	free(win);
 	return (0);
 }
