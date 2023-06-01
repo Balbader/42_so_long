@@ -15,6 +15,8 @@
 
 # define WINDOW_WIDTH 1280
 # define WINDOW_HEIGHT 720
+# define IMG_WIDTH 720
+# define IMG_HEIGHT 400
 # define MLX_ERROR 1
 
 #include "../libft/includes/libft.h"
