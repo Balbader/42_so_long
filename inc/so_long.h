@@ -13,11 +13,13 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# define WINDOW_WIDTH 1280
-# define WINDOW_HEIGHT 720
+# define WINDOW_WIDTH 1920
+# define WINDOW_HEIGHT 1080
 # define IMG_WIDTH 720
 # define IMG_HEIGHT 400
 # define MLX_ERROR 1
+
+# define RED_PIXEL 0xFF0000
 
 #include "../libft/includes/libft.h"
 #include "../mlx_linux/mlx.h"
@@ -28,6 +30,8 @@
 
 typedef struct s_data
 {
+	void	*mlx;
+	void	*win;
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
