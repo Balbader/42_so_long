@@ -16,10 +16,12 @@ int	main(void)
 {
 	void	*mlx;
 	void	*win;
+	void	*img;
 
 	mlx = mlx_init();
 	if (!mlx)
 		return (MLX_ERROR);
+	img = mlx_new_image(mlx, IMG_WIDTH, IMG_HEIGHT);
 	win = mlx_new_window(mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "42 So_Long");
 	if (!win)
 	{
