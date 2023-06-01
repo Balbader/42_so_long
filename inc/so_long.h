@@ -19,6 +19,7 @@
 # define IMG_HEIGHT 400
 # define MLX_ERROR 1
 
+# define WHITE_PIXEL 0xFFFFFF
 # define RED_PIXEL 0xFF0000
 # define GREEN_PIXEL 0xFF00
 
