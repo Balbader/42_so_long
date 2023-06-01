@@ -14,14 +14,16 @@
 
 int	main(void)
 {
+	t_data	img;
 	void	*mlx;
 	void	*win;
-	void	*img;
 
 	mlx = mlx_init();
 	if (!mlx)
 		return (MLX_ERROR);
-	img = mlx_new_image(mlx, IMG_WIDTH, IMG_HEIGHT);
+	img.img = mlx_new_image(mlx, IMG_WIDTH, IMG_HEIGHT);
+	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
+			&img.endian);
 	win = mlx_new_window(mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "42 So_Long");
 	if (!win)
 	{
