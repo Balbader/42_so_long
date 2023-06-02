@@ -31,6 +31,7 @@
 #include <X11/X.h>
 #include <math.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 typedef struct s_data
 {
