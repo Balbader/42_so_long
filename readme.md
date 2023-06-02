@@ -32,4 +32,5 @@ The other goals are similar to every other goal for this first year: being rigor
 ### Links
 + [MiniLibX Basic intro](https://gontjarow.github.io/MiniLibX/mlx-tutorial-draw-line.html)
 + [Getting started with the MiniLibX](https://gontjarow.github.io/MiniLibX/)
++ [Getting started with the MiniLibX github](https://github.com/Gontjarow/MiniLibX)
 + [42 Docs](https://harm-smits.github.io/42docs/)
