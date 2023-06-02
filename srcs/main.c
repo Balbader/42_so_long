@@ -30,6 +30,23 @@ int	ft_handle_keypress(int keysym, t_data *data)
 	return (0);
 }
 
+void	ft_render_background(t_data *data, int color)
+{
+	int	i;
+	int	j;
+
+	if (data->win == NULL)
+		return ;
+	i = 0;
+	while (i < WINDOW_HEIGHT)
+	{
+		j = 0;
+		while (j < WINDOW_WIDTH)
+			mlx_pixel_put(data->mlx, data->win, j++, i, color);
+		++i;
+	}
+}
+
 int	ft_render_rect(t_data *data, t_rect rect)
 {
 	int	i;
@@ -48,32 +65,12 @@ int	ft_render_rect(t_data *data, t_rect rect)
 	return (0);
 }
 
-void	ft_render_background(t_data *data, int color)
-{
-	int	i;
-	int	j;
-
-	if (data->win == NULL)
-		return ;
-	i = 0;
-	while (i < WINDOW_HEIGHT)
-	{
-		j = 0;
-		while (j < WINDOW_WIDTH)
-			mlx_pixel_put(data->mlx, data->win, j++, i, color);
-		++i;
-	}
-}
-
 int	ft_render(t_data *data)
 {
-	// if (data->win != NULL)
-	// 	mlx_pixel_put(data->mlx, data->win, WINDOW_WIDTH / 2,
-	// 		WINDOW_HEIGHT / 2, RED_PIXEL);
-	ft_render_background(data, WHITE_PIXEL);
+	// ft_render_background(data, WHITE_PIXEL);
+	ft_render_rect(data, (t_rect){0, 0, 100, 100, RED_PIXEL});
 	ft_render_rect(data, (t_rect){WINDOW_WIDTH - 100, WINDOW_HEIGHT - 100,
 		100, 100, GREEN_PIXEL});
-	ft_render_rect(data, (t_rect){0, 0, 100, 100, RED_PIXEL});
 	return (0);
 }
 
