@@ -85,7 +85,6 @@ int	ft_draw_line(t_data *data, int start_x, int start_y, int end_x, int end_y, i
 	delta_x = end_x - start_x;
 	delta_y = end_y - start_y;
 	pixels = sqrt((delta_x * delta_x) + (delta_y * delta_y));
-	pixels = sqrt(100);
 	delta_x /= pixels;
 	delta_y /= pixels;
 	pixel_x = start_x;
@@ -115,9 +114,11 @@ int	main(void)
 		return (MLX_ERROR);
 	}
 	ft_draw_line(&data, WINDOW_WIDTH, WINDOW_HEIGHT, 0, 0, 0xFFFFFF);
-	// ft_render(&data);
-	// mlx_loop_hook(data.mlx, &ft_render, &data);
-	// mlx_hook(data.win, KeyPress, KeyPressMask, &ft_handle_keypress, &data);
+	ft_draw_line(&data, WINDOW_WIDTH, 0, 0, WINDOW_HEIGHT, 0xFFFFFF);
+	ft_draw_line(&data, WINDOW_WIDTH, WINDOW_HEIGHT / 2, 0, WINDOW_HEIGHT / 2, 0xFFFFFF);
+	ft_render(&data);
+	mlx_loop_hook(data.mlx, &ft_render, &data);
+	mlx_hook(data.win, KeyPress, KeyPressMask, &ft_handle_keypress, &data);
 	mlx_loop(data.mlx);
 	mlx_destroy_display(data.mlx);
 	free(data.mlx);
