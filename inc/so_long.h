@@ -13,8 +13,10 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# define WINDOW_WIDTH 1920
-# define WINDOW_HEIGHT 1080
+// # define WINDOW_WIDTH 1920
+// # define WINDOW_HEIGHT 1080
+# define WINDOW_WIDTH 900
+# define WINDOW_HEIGHT 300
 # define IMG_WIDTH 720
 # define IMG_HEIGHT 400
 # define MLX_ERROR 1
