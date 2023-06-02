@@ -28,3 +28,8 @@ The other goals are similar to every other goal for this first year: being rigor
 + The program has to display the image in a window
 + The management of your window must remain smooth (changing to another window, minimizing, and so forth)
 + Pressing `ESC` must close the window and quit the program in a clean way
+
+### Links
++ [MiniLibX Basic intro](https://gontjarow.github.io/MiniLibX/mlx-tutorial-draw-line.html)
++ [Getting started with the MiniLibX](https://aurelienbrabant.fr/blog/getting-started-with-the-minilibx)
++ [42 Docs](https://harm-smits.github.io/42docs/)
