@@ -74,6 +74,31 @@ int	ft_render(t_data *data)
 	return (0);
 }
 
+int	ft_draw_line(t_data *data, int start_x, int start_y, int end_x, int end_y, int color)
+{
+	double	delta_x;
+	double	delta_y;
+	double	pixel_x;
+	double	pixel_y;
+	int		pixels;
+
+	delta_x = end_x - start_x;
+	delta_y = end_y - start_y;
+	pixels = sqrt((delta_x * delta_x) + (delta_y * delta_y));
+	pixels = sqrt(100);
+	delta_x /= pixels;
+	delta_y /= pixels;
+	pixel_x = start_x;
+	pixel_y = start_y;
+	while (pixels)
+	{
+		mlx_pixel_put(data->mlx, data->win, pixel_x, pixel_y, color);
+		pixel_x += delta_x;
+		pixel_y += delta_y;
+		--pixels;
+	}
+	return (0);
+}
 
 int	main(void)
 {
@@ -89,9 +114,10 @@ int	main(void)
 		free(data.win);
 		return (MLX_ERROR);
 	}
-	ft_render(&data);
-	mlx_loop_hook(data.mlx, &ft_render, &data);
-	mlx_hook(data.win, KeyPress, KeyPressMask, &ft_handle_keypress, &data);
+	ft_draw_line(&data, WINDOW_WIDTH, WINDOW_HEIGHT, 0, 0, 0xFFFFFF);
+	// ft_render(&data);
+	// mlx_loop_hook(data.mlx, &ft_render, &data);
+	// mlx_hook(data.win, KeyPress, KeyPressMask, &ft_handle_keypress, &data);
 	mlx_loop(data.mlx);
 	mlx_destroy_display(data.mlx);
 	free(data.mlx);
