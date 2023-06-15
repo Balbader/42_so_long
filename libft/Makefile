@@ -66,6 +66,12 @@ FT_PRINTF_FILES	=	ft_print_char.c \
 FT_PRINTF		=	$(addprefix $(FT_PRINTF_DIR), $(FT_PRINTF_FILES))
 
 
+# gnl
+GNL_DIR			=	gnl/
+GNL_FILES		=	get_next_line.c \
+					get_next_line_utils.c
+GNL				=	$(addprefix $(GNL_DIR), $(GNL_FILES))
+
 # llist
 LLIST_DIR		=	llist/
 LLIST_FILES		=	ft_lstadd_back.c \
@@ -143,6 +149,7 @@ SRCS_DIR		=	./srcs/
 SRCS_FILES		=	$(CTYPE) \
 					$(DLIST) \
 					$(FT_PRINTF) \
+					$(GNL) \
 					$(LLIST) \
 					$(MEMORY) \
 					$(OUTPUT) \
