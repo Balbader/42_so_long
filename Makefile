@@ -31,9 +31,7 @@ SRCS_DIR			:=	./srcs/
 INC_DIR				:=	./inc/ \
 						./libft/includes/
 
-SRCS				:=	get_next_line.c \
-						get_next_line_utils.c \
-						main.c
+SRCS				:=	main.c
 SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)
 
 BUILD_DIR			:=	.build
