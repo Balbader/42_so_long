@@ -13,40 +13,38 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-// # define WINDOW_WIDTH 1920
-// # define WINDOW_HEIGHT 1080
-# define WINDOW_WIDTH 900
-# define WINDOW_HEIGHT 300
-# define IMG_WIDTH 720
-# define IMG_HEIGHT 400
-# define MLX_ERROR 1
-
-# define WHITE_PIXEL 0xFFFFFF
-# define RED_PIXEL 0xFF0000
-# define GREEN_PIXEL 0xFF00
-
 #include "../libft/includes/libft.h"
 #include "../mlx_linux/mlx.h"
 #include <X11/keysym.h>
 #include <X11/X.h>
-#include <math.h>
+#include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
+#include <errno.h>
+#include <string.h>
 
 typedef struct s_data
 {
 	void	*mlx;
 	void	*win;
-	void	*img;
-	char	*addr;
+	void	*floor;
+	void	*block;
+	void	*player;
+	void	*collectible;
+
+	char	**map;
+
 	int		x;
 	int		y;
 	int		width;
 	int		height;
-	int		color;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
+	int		fd;
+	int		player;
+	int		column;
+	int		exit;
+	int		counter;
+	int		collectibles;
 }				t_data;
 
 #endif
