@@ -49,13 +49,4 @@ typedef struct s_data
 	int		endian;
 }				t_data;
 
-typedef struct s_rect
-{
-	int		x;
-	int		y;
-	int		width;
-	int		height;
-	int		color;
-}				t_rect;
-
 #endif
