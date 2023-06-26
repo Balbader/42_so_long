@@ -12,26 +12,45 @@
 
 #include "so_long.h"
 
-int	main(int ac, char **av)
+static void	*ft_memset(void *b, int c, size_t length)
 {
-	t_data	data;
+	unsigned char	*p;
 
-	(void)ac;
-	(void)av;
-	data.mlx = mlx_init();
-	if (!data.mlx)
-		return (MLX_ERROR);
-	data.win = mlx_new_window(data.mlx, WINDOW_WIDTH,
-			WINDOW_HEIGHT, "42 So_Long");
-	if (!data.win)
-	{
-		free(data.win);
-		return (MLX_ERROR);
-	}
-	mlx_loop_hook(data.mlx, &ft_render, &data);
-	mlx_hook(data.win, KeyPress, KeyPressMask, &ft_handle_keypress, &data);
-	mlx_loop(data.mlx);
-	mlx_destroy_display(data.mlx);
-	free(data.mlx);
-	return (0);
+	p = (unsigned char *)b;
+	while (length--)
+		*p++ = (unsigned char)c;
+	return (b);
+}
+
+int	exit_point(t_complete *game)
+{
+	int	line;
+
+	line = 0;
+	if (game->winpointer)
+		mlx_destroy_window(game->mlxpointer, game->winpointer);
+	free(game->mlxpointer);
+	while (line < game->heightmap - 1)
+		free(game->map[line++]);
+	free(game->map);
+	exit(0);
+}
+
+int	main(int argc, char **argv)
+{
+	t_complete	game;
+
+	if (argc != 2)
+		return (0);
+	ft_memset(&game, 0, sizeof(t_complete));
+	map_reading(&game, argv);
+	check_errors(&game);
+	game.mlxpointer = mlx_init();
+	game.winpointer = mlx_new_window(game.mlxpointer, (game.widthmap * 40),
+			(game.heightmap * 40), "solong");
+	place_images_in_game(&game);
+	adding_in_graphics(&game);
+	mlx_key_hook(game.winpointer, controls_working, &game);
+	mlx_hook(game.winpointer, 17, 0, (void *)exit, 0);
+	mlx_loop(game.mlxpointer);
 }
