@@ -15,23 +15,47 @@ NAME				:=	so_long
 
 # SRCS FILES ##################################################################
 
+GAME_DIR			:=	game/
+GAME_FILES			:=	\
+						controls.c \
+						errors.c \
+						graphics.c \
+						map.c
+GAME				:=	$(addprefix $(GAME_DIR), $(GAME_FILES))
+
+PRINTF_DIR			:=	ft_printf/
+PRINTF_FILES		:=	\
+						ft_print_char.c \
+						ft_print_hexa.c \
+						ft_print_nb.c \
+						ft_print_ptr.c \
+						ft_print_str.c \
+						ft_print_unsigned.c \
+						ft_printf.c
+PRINTF				:=	$(addprefix $(PRINTF_DIR), $(PRINTF_FILES))
+
+GNL_DIR				:=	gnl/
+GNL_FILES			:=	\
+						get_next_line.c \
+						get_next_line_utils.c
+GNL					:=	$(addprefix $(GNL_DIR), $(GNL_FILES))
 
 
 
 # INGREDIENTS #################################################################
-LIBFT				:=	./libft/libft.a
-LIBFT_TARGET		:=	./libft/
-MAKE_LIBFT			:=	make -C $(LIBFT_TARGET)
-
 LIBMLX				:=	./mlx_linux/libmlx_Linux.a
 LIBMLX_TARGET		:=	./mlx_linux/
 MAKE_LIBMLX			:=	make -C $(LIBMLX_TARGET)
 
 SRCS_DIR			:=	./srcs/
-INC_DIR				:=	./inc/ \
-						./libft/includes/
+INC_DIR				:=	\
+						./inc/
 
-SRCS				:=	main.c
+SRCS				:=	\
+						$(GAME) \
+						$(PRINTF) \
+						$(GNL) \
+						main.c
 SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)
 
 BUILD_DIR			:=	.build
