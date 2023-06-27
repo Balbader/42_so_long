@@ -32,6 +32,16 @@
 
 typedef struct t_start
 {
+	char	**map;
+
+	void	*mlxpointer;
+	void	*winpointer;
+	void	*floor;
+	void	*barrier;
+	void	*player;
+	void	*exit;
+	void	*collectable;
+
 	int		fd;
 	int		heightmap;
 	int		widthmap;
@@ -43,15 +53,6 @@ typedef struct t_start
 	int		counter;
 	int		collectables;
 
-	char	**map;
-
-	void	*floor;
-	void	*barrier;
-	void	*player;
-	void	*exit;
-	void	*collectable;
-	void	*mlxpointer;
-	void	*winpointer;
 
 }	t_complete;
 
@@ -70,7 +71,7 @@ void	ft_print_ptr(size_t ptr, int *tot_len);
 void	ft_print_char(char c, int *tot_len);
 void	ft_print_str(char *str, int *tot_len);
 
-int		ft_strlen(const char *str);
+size_t	ft_strlen(const char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strchr(const char *s, int c);
