@@ -85,7 +85,7 @@ void			ft_check_content(t_data *data);
 // map.c
 char			*ft_get_map(int fd);
 char			**ft_parse_map(int fd, t_data *data);
-char			**ft_run_map_logic(char **str, t_data *data);
+char			**ft_run_map(char **str, t_data *data);
 void			*ft_free_map(t_data *data);
 
 // render.c
