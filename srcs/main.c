@@ -3,54 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baalbade <baalbade@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baalbade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/01 14:02:24 by baalbade          #+#    #+#             */
-/*   Updated: 2023/05/01 14:02:25 by baalbade         ###   ########.fr       */
+/*   Created: 2023/06/28 12:11:50 by baalbade          #+#    #+#             */
+/*   Updated: 2023/06/28 12:11:53 by baalbade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	*ft_memset(void *b, int c, size_t length)
+int	main(int ac, char **av)
 {
-	unsigned char	*p;
+	t_data	data;
 
-	p = (unsigned char *)b;
-	while (length--)
-		*p++ = (unsigned char)c;
-	return (b);
-}
-
-int	exit_point(t_complete *game)
-{
-	int	line;
-
-	line = 0;
-	if (game->winpointer)
-		mlx_destroy_window(game->mlxpointer, game->winpointer);
-	free(game->mlxpointer);
-	while (line < game->heightmap - 1)
-		free(game->map[line++]);
-	free(game->map);
-	exit(0);
-}
-
-int	main(int argc, char **argv)
-{
-	t_complete	game;
-
-	if (argc != 2)
+	if (ac != 2)
+	{
+		ft_error("Error\nThis programe take 1 argument .ber\n");
 		return (0);
-	ft_memset(&game, 0, sizeof(t_complete));
-	map_reading(&game, argv);
-	check_errors(&game);
-	game.mlxpointer = mlx_init();
-	game.winpointer = mlx_new_window(game.mlxpointer, (game.widthmap * 40),
-			(game.heightmap * 40), "so_long_42");
-	place_images_in_game(&game);
-	adding_in_graphics(&game);
-	mlx_key_hook(game.winpointer, controls_working, &game);
-	mlx_hook(game.winpointer, 17, 0, (void *)exit, 0);
-	mlx_loop(game.mlxpointer);
+	}
+	else
+	{
+		data.count = 0;
+		data.mlx_ptr = mlx_init();
+		set_content(&(data.content));
+		data.map = map_core(av, &data);
+		if (data.map != NULL)
+		{
+			set_img(&data);
+			core_render(&data);
+		}
+		else
+			end(&data);
+	}
+	return (1);
 }
