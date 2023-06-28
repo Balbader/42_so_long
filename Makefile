@@ -13,26 +13,11 @@
 # NAME
 NAME				:=	so_long
 
-
 # SRCS FILES
-GAME_DIR			:=	game/
-GAME_FILES			:=	\
-						controls.c \
-						errors.c \
-						graphics.c \
-						map.c
-GAME				:=	$(addprefix $(GAME_DIR), $(GAME_FILES))
-
-
-GNL_DIR				:=	gnl/
-GNL_FILES			:=	\
-						get_next_line.c \
-						get_next_line_utils.c
-GNL					:=	$(addprefix $(GNL_DIR), $(GNL_FILES))
 
 # INGREDIENTS
-LIBFT				:=	./mlx_linux/libmlx_Linux.a
-LIBFT_TARGET		:=	./mlx_linux/
+LIBFT				:=	./libft/libft.a
+LIBFT_TARGET		:=	./libft/
 MAKE_LIBFT			:=	make -C $(LIBFT_TARGET)
 
 LIBMLX				:=	./mlx_linux/libmlx_Linux.a
@@ -42,12 +27,7 @@ MAKE_LIBMLX			:=	make -C $(LIBMLX_TARGET)
 SRCS_DIR			:=	./srcs/
 INC_DIR				:=	./inc/
 
-SRCS				:=	\
-						$(GAME) \
-						$(PRINTF) \
-						$(GNL) \
-						$(LIBFT) \
-						main.c
+SRCS				:=	main.c
 SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)
 
 BUILD_DIR			:=	.build
@@ -90,6 +70,7 @@ clean:
 
 fclean:
 	$(MAKE) clean
+	$(MAKE_LIBFT) fclean
 	$(RM) $(NAME)
 
 re:
