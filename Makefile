@@ -64,6 +64,19 @@ SET_FILES			:=	\
 						ft_set_image.c
 SET					:=	$(addprefix $(SET_DIR), $(SET_FILES))
 
+TEXTURE_DIR			:=	texture/
+TEXTURE_FILES		:=	\
+						ft_check_collectible.c \
+						ft_end_game.c \
+						ft_key_press.c
+TEXTURE				:=	$(addprefix $(TEXTURE_DIR), $(TEXTURE_FILES))
+
+UTILS_DIR			:=	utils/
+UTILS_FILES			:=	\
+ 						ft_is_duplicate.c \
+ 						ft_print_error.c
+UTILS				:=	$(addprefix $(UTILS_DIR), $(UTILS_FILES))
+
 # INGREDIENTS
 LIBFT				:=	./libft/libft.a
 LIBFT_TARGET		:=	./libft/
@@ -81,6 +94,10 @@ SRCS				:=	\
 						$(MAP) \
 						$(MAP_CHECK) \
 						$(RENDER) \
+						$(RENDER_MOUV) \
+						$(SET) \
+						$(TEXTURE) \
+						$(UTILS) \
 						main.c
 SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)
 
