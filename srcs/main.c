@@ -14,26 +14,29 @@
 
 int	main(int ac, char **av)
 {
-	t_data	data;
+	(void)ac;
+	(void)av;
+	// t_data	data;
 
-	if (ac != 2)
-	{
-		ft_error("Error\nThis programe take 1 argument .ber\n");
-		return (0);
-	}
-	else
-	{
-		data.count = 0;
-		data.mlx_ptr = mlx_init();
-		set_content(&(data.content));
-		data.map = map_core(av, &data);
-		if (data.map != NULL)
-		{
-			set_img(&data);
-			core_render(&data);
-		}
-		else
-			end(&data);
-	}
-	return (1);
+	// if (ac != 2)
+	// {
+	// 	ft_error("Error\nThis programe take 1 argument .ber\n");
+	// 	return (0);
+	// }
+	// else
+	// {
+	// 	data.count = 0;
+	// 	data.mlx_ptr = mlx_init();
+	// 	set_content(&(data.content));
+	// 	data.map = map_core(av, &data);
+	// 	if (data.map != NULL)
+	// 	{
+	// 		set_img(&data);
+	// 		core_render(&data);
+	// 	}
+	// 	else
+	// 		end(&data);
+	// }
+	// return (1);
+	return (0);
 }
