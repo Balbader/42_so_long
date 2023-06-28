@@ -25,7 +25,7 @@ char	**ft_parse_map(int fd, t_data *data)
 		return (ft_free_map(data));
 	while (data->map[i] != NULL)
 	{
-		if (!(ft_check_col(data->map[i], data->content.wall, data)))
+		if (!(ft_check_column(data->map[i], data->content.wall, data)))
 			return (ft_free_map(data));
 		else if (!(ft_check_other(data->map[i], &(data->content))))
 			return (ft_free_map(data));
