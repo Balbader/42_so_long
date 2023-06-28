@@ -17,7 +17,7 @@
 # include <stdint.h>
 
 char	**ft_split(char const *str, char split);
-char	*ft_strchr(const char *haystack, int needle);
+int		ft_strchr(char *str, char *cmp);
 char	*ft_strrchr(const char *haystack, int needle);
 char	*ft_strcpy(char *dst, const char *src);
 char	*ft_strdup(const char *str);
