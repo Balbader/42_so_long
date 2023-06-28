@@ -12,26 +12,24 @@
 
 #include "libft.h"
 
-static int	ft_check_char(char c, char needle)
-{
-	return (c == needle);
-}
-
-char	*ft_strchr(const char *haystack, int needle)
+int	ft_strchr(char *str, char *cmp)
 {
 	int		i;
-	char	*str;
-	char	to_find;
+	int		y;
 
-	str = (char *)haystack;
-	to_find = (char)needle;
-	if (!to_find)
-		return (str + ft_strlen(str));
 	i = 0;
-	while (str[i] && !ft_check_char(str[i], to_find))
+	y = 0;
+	if (cmp[y] == '\0' && str[i] == '\0')
+		return (1);
+	while (str[i])
+	{
+		while (str[i + y] == cmp[y] && str[i + y] && cmp[y])
+			y++;
+		if (cmp[y] == '\0' && str[i + y] == '\0')
+			return (1);
+		else
+			y = 0;
 		i++;
-	if (ft_check_char(str[i], to_find))
-		return (str + i);
-	else
-		return (NULL);
+	}
+	return (0);
 }

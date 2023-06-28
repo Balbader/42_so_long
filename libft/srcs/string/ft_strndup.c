@@ -26,6 +26,7 @@ char	*ft_strndup(const char *str, size_t n)
 	if (!dup)
 		return (NULL);
 	i = 0;
+	j = 0;
 	while (i < n)
 		dup[j++] = str[i++];
 	dup[j] = '\0';
