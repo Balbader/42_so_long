@@ -50,6 +50,20 @@ RENDER_FILES		:=	\
 						ft_render_other.c
 RENDER				:=	$(addprefix $(RENDER_DIR), $RENDER_FILES)
 
+RENDER_MOUV_DIR		:=	render_mouv/
+RENDER_MOUV_FILES	:=	\
+						ft_render_down.c \
+						ft_render_left.c \
+						ft_render_right.c \
+						ft_render_top.c
+RENDER_MOUV			:=	$(addprefix $(RENDER_MOUV_DIR), $RENDER_MOUV_FILES)
+
+SET_DIR				:=	set/
+SET_FILES			:=	\
+						ft_set_content.c \
+						ft_set_image.c
+SET					:=	$(addprefix $(SET_DIR), $(SET_FILES))
+
 # INGREDIENTS
 LIBFT				:=	./libft/libft.a
 LIBFT_TARGET		:=	./libft/
