@@ -60,7 +60,7 @@ char	**ft_parse_map(int fd, t_data *data)
 	int		i;
 
 	i = 1;
-	data->map = ft_split(get_map(fd), '\n');
+	data->map = ft_split(ft_get_map(fd), '\n');
 	ft_check_content(data);
 	if (!(ft_check_format(data->map)))
 		return (ft_free_map(data));
@@ -80,7 +80,7 @@ char	**ft_parse_map(int fd, t_data *data)
 	return (data->map);
 }
 
-char	**ft_run_map_logic(char **str, t_data *data)
+char	**ft_run_map(char **str, t_data *data)
 {
 	int		fd;
 
