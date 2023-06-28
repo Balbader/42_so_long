@@ -14,29 +14,26 @@
 
 int	main(int ac, char **av)
 {
-	(void)ac;
-	(void)av;
-	// t_data	data;
+	t_data	data;
 
-	// if (ac != 2)
-	// {
-	// 	ft_error("Error\nThis programe take 1 argument .ber\n");
-	// 	return (0);
-	// }
-	// else
-	// {
-	// 	data.count = 0;
-	// 	data.mlx_ptr = mlx_init();
-	// 	set_content(&(data.content));
-	// 	data.map = ft_run_map_logic(av, &data);
-	// 	if (data.map != NULL)
-	// 	{
-	// 		set_img(&data);
-	// 		core_render(&data);
-	// 	}
-	// 	else
-	// 		end(&data);
-	// }
-	// return (1);
-	return (0);
+	if (ac != 2)
+	{
+		ft_print_error("Error.\nTotal aguments count incorrect.\n");
+		return (0);
+	}
+	else
+	{
+		data.count = 0;
+		data.mlx_ptr = mlx_init();
+		ft_set_content(&(data.content));
+		data.map = ft_run_map_logic(av, &data);
+		if (data.map != NULL)
+		{
+			ft_set_image(&data);
+			ft_render_main(&data);
+		}
+		else
+			end(&data);
+	}
+	return (1);
 }
