@@ -59,3 +59,20 @@ The other goals are similar to every other goal for this first year: being rigor
 ### Part 3 : Move
 	. Either intervert sprites based on character movements
 	. Either rewrite sprite based on character movements
+
+
+
+
+## Ressources
+
+* Telechargement de la MLX: https://github.com/42Paris/minilibx-linux
+
+* Bibliotheque de png: https://www.vhv.rs/
+
+* Resize un png: https://onlinepngtools.com/resize-png
+
+* Convertion en xpm: https://anyconv.com/fr/convertisseur-de-png-en-xpm/
+
+* Guide pour l'utilisation de la minilib: https://aurelienbrabant.fr/blog
+
+* Man des prototypes de fonctions de la MLX: https://qst0.github.io/ft_libgfx/man_mlx_new_image.html
