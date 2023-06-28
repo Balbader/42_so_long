@@ -32,6 +32,24 @@ MAP_FILES			:=	\
 						ft_run_map.c
 MAP					:=	$(addprefix $(MAP_DIR), $(MAP_FILES))
 
+MAP_CHECK_DIR		:=	map/
+MAP_CHECK_FILES		:=	\
+						ft_check_column.c \
+						ft_check_content.c \
+						ft_check_format.c \
+						ft_check_line.c \
+						ft_check_other.c
+MAP_CHECK				:=	$(addprefix $(MAP_CHECK_DIR), $(MAP_CHECK_FILES))
+
+RENDER_DIR			:=	render/
+RENDER_FILES		:=	\
+						ft_print_img.c \
+						ft_render.c \
+						ft_render_background.c \
+						ft_render_main.c \
+						ft_render_other.c
+RENDER				:=	$(addprefix $(RENDER_DIR), $RENDER_FILES)
+
 # INGREDIENTS
 LIBFT				:=	./libft/libft.a
 LIBFT_TARGET		:=	./libft/
@@ -47,6 +65,8 @@ INC_DIR				:=	./inc/
 SRCS				:=	\
 						$(LOGIC) \
 						$(MAP) \
+						$(MAP_CHECK) \
+						$(RENDER) \
 						main.c
 SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)
 
