@@ -75,7 +75,7 @@ int				ft_is_duplicate(char *str);
 void			*ft_print_error(char *str);
 
 // map_checker.c
-int				ft_check_col(char *map_line, char wall, t_data *data);
+int				ft_check_column(char *map_line, char wall, t_data *data);
 int				ft_check_line(char *map_line, char wall);
 int				ft_check_other(char *map_line, t_cnt *content);
 int				ft_check_format(char **map);
@@ -105,8 +105,8 @@ void			ft_set_content(t_cnt *content);
 void			ft_set_image(t_data *data);
 
 // texture.c
-int				ft_check_collect(t_data *data);
-int				ft_end(t_data *data);
+int				ft_check_collectible(t_data *data);
+int				ft_end_game(t_data *data);
 int				ft_key_press(int keysym, t_data *data);
 
 //main.c
