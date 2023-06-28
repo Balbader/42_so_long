@@ -72,43 +72,43 @@ typedef struct data_s
 
 /*
 // utils.c
-void			*ft_error(char *str);
 int				ft_same_char(char *str);
+void			*ft_print_error(char *str);
 
 // map_checker.c
 int				ft_check_col(char *map_line, char wall, t_data *data);
 int				ft_check_line(char *map_line, char wall);
 int				ft_check_other(char *map_line, t_cnt *content);
-void			ft_check_content(t_data *data);
 int				ft_check_format(char **map);
+void			ft_check_content(t_data *data);
 
 // map.c
-char			*get_map(int fd);
+char			*ft_get_map(int fd);
+char			**ft_parse_map(int fd, t_data *data);
+char			**ft_run_map_logic(char **str, t_data *data);
 void			*ft_free_map(t_data *data);
-char			**parse_map(int fd, t_data *data);
-char			**map_core(char **str, t_data *data);
 
 // render.c
-void			render_background(t_data *data);
-void			render_other(t_data *data);
-int				render(t_data *data);
-void			core_render(t_data *data);
-void			print_img(t_data *data, void *img, int x, int y);
+int				ft_render(t_data *data);
+void			ft_render_background(t_data *data);
+void			ft_render_other(t_data *data);
+void			ft_core_render(t_data *data);
+void			ft_print_img(t_data *data, void *img, int x, int y);
 
 // render_mouv.c
-void			render_top(t_data *data);
-void			render_right(t_data *data);
-void			render_left(t_data *data);
-void			render_down(t_data *data);
+void			ft_render_top(t_data *data);
+void			ft_render_right(t_data *data);
+void			ft_render_left(t_data *data);
+void			ft_render_down(t_data *data);
 
 // set.c
-void			set_content(t_cnt *content);
-void			set_img(t_data *data);
+void			ft_set_content(t_cnt *content);
+void			ft_set_img(t_data *data);
 
 // texture.c
-int				chk_collect(t_data *data);
-int				end(t_data *data);
-int				key_press(int keysym, t_data *data);
+int				ft_chk_collect(t_data *data);
+int				ft_end(t_data *data);
+int				ft_key_press(int keysym, t_data *data);
 */
 
 //main.c
