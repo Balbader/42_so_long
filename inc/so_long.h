@@ -70,9 +70,8 @@ typedef struct data_s
 	int		count;
 }				t_data;
 
-/*
 // utils.c
-int				ft_same_char(char *str);
+int				ft_is_duplicate(char *str);
 void			*ft_print_error(char *str);
 
 // map_checker.c
@@ -106,10 +105,9 @@ void			ft_set_content(t_cnt *content);
 void			ft_set_image(t_data *data);
 
 // texture.c
-int				ft_chk_collect(t_data *data);
+int				ft_check_collect(t_data *data);
 int				ft_end(t_data *data);
 int				ft_key_press(int keysym, t_data *data);
-*/
 
 //main.c
 int				main(int argc, char **argv);
