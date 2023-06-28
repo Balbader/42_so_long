@@ -103,7 +103,7 @@ void			ft_render_down(t_data *data);
 
 // set.c
 void			ft_set_content(t_cnt *content);
-void			ft_set_img(t_data *data);
+void			ft_set_image(t_data *data);
 
 // texture.c
 int				ft_chk_collect(t_data *data);
