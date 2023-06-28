@@ -21,7 +21,7 @@ int	ft_check_line(char *map_line, char wall)
 	{
 		if (map_line[i] != wall)
 		{
-			ft_print_error("Error\nMap line not close\n");
+			ft_print_error("Error.\nUnclosed Line.\n");
 			return (0);
 		}
 		i++;
