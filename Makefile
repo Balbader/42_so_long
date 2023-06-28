@@ -24,6 +24,14 @@ LOGIC_FILES			:=	\
 						utils.c
 LOGIC				:=	$(addprefix $(LOGIC_DIR), $(LOGIC_FILES))
 
+MAP_DIR				:=	map/
+MAP_FILES			:=	\
+						ft_free_map.c \
+						ft_get_map.c \
+						ft_parse_map.c \
+						ft_run_map.c
+MAP					:=	$(addprefix $(MAP_DIR), $(MAP_FILES))
+
 # INGREDIENTS
 LIBFT				:=	./libft/libft.a
 LIBFT_TARGET		:=	./libft/
@@ -38,6 +46,7 @@ INC_DIR				:=	./inc/
 
 SRCS				:=	\
 						$(LOGIC) \
+						$(MAP) \
 						main.c
 SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)
 
