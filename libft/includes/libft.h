@@ -20,5 +20,7 @@
 # include "ft_llist.h"
 # include "ft_dlist.h"
 # include "ft_output.h"
+# include "ft_printf.h"
+# include "ft_get_next_line.h"
 
 #endif
