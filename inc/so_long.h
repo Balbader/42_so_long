@@ -52,9 +52,7 @@ typedef struct t_start
 	int		y_axis;
 	int		counter;
 	int		collectables;
-
-
-}	t_complete;
+}				t_complete;
 
 int		exit_point(t_complete *game);
 int		map_reading(t_complete *game, char **argv);
@@ -77,5 +75,12 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *str);
 char	*get_next_line(int fd);
+char	*ft_strncpy(char *str, int nb);
+char	**ft_split(const char *s, char c);
+char	*ft_itoa(int n);
+void	ft_putstr(char *str);
+void	ft_putchar(char c);
+int		ft_isdigit(int c);
+int		ft_atoi(const char *str);
 
 #endif

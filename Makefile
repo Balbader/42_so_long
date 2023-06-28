@@ -55,8 +55,6 @@ LIBFT_FILES			:=	\
 						ft_strncpy.c
 LIBFT				:=	$(addprefix $(LIBFT_DIR), $(LIBFT_FILES))
 
-
-
 # INGREDIENTS #################################################################
 LIBMLX				:=	./mlx_linux/libmlx_Linux.a
 LIBMLX_TARGET		:=	./mlx_linux/
