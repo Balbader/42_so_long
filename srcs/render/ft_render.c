@@ -14,7 +14,7 @@
 
 int	ft_render(t_data *data)
 {
-	ft_ren_background(data);
+	ft_render_background(data);
 	ft_render_other(data);
 	return (0);
 }
