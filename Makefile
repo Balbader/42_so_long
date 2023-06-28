@@ -3,18 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: baalbade <baalbade@student.42.fr>          +#+  +:+       +#+         #
+#    By: baalbade <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/01 08:42:07 by baalbade          #+#    #+#              #
-#    Updated: 2023/05/01 08:42:10 by baalbade         ###   ########.fr        #
+#    Created: 2023/06/28 12:14:32 by baalbade          #+#    #+#              #
+#    Updated: 2023/06/28 12:14:34 by baalbade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# NAME ########################################################################
+# NAME
 NAME				:=	so_long
 
-# SRCS FILES ##################################################################
 
+# SRCS FILES
 GAME_DIR			:=	game/
 GAME_FILES			:=	\
 						controls.c \
@@ -23,16 +23,6 @@ GAME_FILES			:=	\
 						map.c
 GAME				:=	$(addprefix $(GAME_DIR), $(GAME_FILES))
 
-PRINTF_DIR			:=	ft_printf/
-PRINTF_FILES		:=	\
-						ft_print_char.c \
-						ft_print_hexa.c \
-						ft_print_nb.c \
-						ft_print_ptr.c \
-						ft_print_str.c \
-						ft_print_unsigned.c \
-						ft_printf.c
-PRINTF				:=	$(addprefix $(PRINTF_DIR), $(PRINTF_FILES))
 
 GNL_DIR				:=	gnl/
 GNL_FILES			:=	\
@@ -40,22 +30,11 @@ GNL_FILES			:=	\
 						get_next_line_utils.c
 GNL					:=	$(addprefix $(GNL_DIR), $(GNL_FILES))
 
-LIBFT_DIR			:=	libft/
-LIBFT_FILES			:=	\
-						ft_atoi.c \
-						ft_isdigit.c \
-						ft_itoa.c \
-						ft_putchar \
-						ft_putstr.c \
-						ft_split.c \
-						ft_strchr.c \
-						ft_strdup.c \
-						ft_strjoin.c \
-						ft_strlen.c \
-						ft_strncpy.c
-LIBFT				:=	$(addprefix $(LIBFT_DIR), $(LIBFT_FILES))
+# INGREDIENTS
+LIBFT				:=	./mlx_linux/libmlx_Linux.a
+LIBFT_TARGET		:=	./mlx_linux/
+MAKE_LIBFT			:=	make -C $(LIBFT_TARGET)
 
-# INGREDIENTS #################################################################
 LIBMLX				:=	./mlx_linux/libmlx_Linux.a
 LIBMLX_TARGET		:=	./mlx_linux/
 MAKE_LIBMLX			:=	make -C $(LIBMLX_TARGET)
@@ -80,14 +59,16 @@ CFLAGS				:=	-Wall -Wextra -Werror -g3
 IFLAGS				:=	$(addprefix -I, $(INC_DIR))
 LDFLAGS				:=	-Lmlx_linux -lmlx_Linux -L$(LIBMLX) -Imlx_linux -lXext -lX11 -lm -lz
 
-# USTENSILS	###################################################################
+
+# USTENSILS
 RM					:=	rm -rf
 DIR_DUP				=	mkdir -p $(@D)
 
-# RECIPES #####################################################################
+
+# RECIPES
 all: $(NAME)
 
-$(NAME): $(LIBMLX) $(OBJS)
+$(NAME): $(LIBFT) $(LIBMLX) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $(NAME)
 
 $(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
@@ -96,10 +77,14 @@ $(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
 
 -include $(DEPS)
 
+$(LIBFT):
+	$(MAKE_LIBFT)
+
 $(LIBMLX):
 	$(MAKE_LIBMLX)
 
 clean:
+	$(MAKE_LIBFT) clean
 	$(MAKE_LIBMLX) clean
 	$(RM) $(BUILD_DIR) $(DEPS)
 
@@ -111,8 +96,7 @@ re:
 	$(MAKE) fclean
 	$(MAKE) all
 
-############
-#   SPEC   #
-############
+
+# SPEC
 .PHONY: all clean fclean re
 # .SILENT:
