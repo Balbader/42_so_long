@@ -14,16 +14,6 @@
 NAME				:=	so_long
 
 # SRCS FILES
-LOGIC_DIR			:=	logic/
-LOGIC_FILES			:=	\
-						map.c \
-						map_check.c \
-						render.c \
-						render_mouv.c \
-						texture.c \
-						utils.c
-LOGIC				:=	$(addprefix $(LOGIC_DIR), $(LOGIC_FILES))
-
 MAP_DIR				:=	map/
 MAP_FILES			:=	\
 						ft_free_map.c \
@@ -90,7 +80,6 @@ SRCS_DIR			:=	./srcs/
 INC_DIR				:=	./inc/
 
 SRCS				:=	\
-						$(LOGIC) \
 						$(MAP) \
 						$(MAP_CHECK) \
 						$(RENDER) \
