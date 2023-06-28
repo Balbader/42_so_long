@@ -14,6 +14,15 @@
 NAME				:=	so_long
 
 # SRCS FILES
+LOGIC_DIR			:=	logic/
+LOGIC_FILES			:=	\
+						map.c \
+						map_check.c \
+						render.c \
+						render_mouv.c \
+						texture.c \
+						utils.c
+LOGIC				:=	$(addprefix $(LOGIC_DIR), $(LOGIC_FILES))
 
 # INGREDIENTS
 LIBFT				:=	./libft/libft.a
@@ -27,7 +36,9 @@ MAKE_LIBMLX			:=	make -C $(LIBMLX_TARGET)
 SRCS_DIR			:=	./srcs/
 INC_DIR				:=	./inc/
 
-SRCS				:=	main.c
+SRCS				:=	\
+						$(LOGIC) \
+						main.c
 SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)
 
 BUILD_DIR			:=	.build
