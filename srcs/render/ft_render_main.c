@@ -16,7 +16,7 @@ void	ft_render_main(t_data *data)
 {
 	data->mlx_win = mlx_new_window(data->mlx_ptr,
 			(data->width * data->img.width), (data->height * data->img.height),
-			"So_long");
+			"42 So_Long");
 	if (data->mlx_win == NULL)
 	{
 		free(data->mlx_ptr);
