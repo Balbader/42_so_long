@@ -11,3 +11,20 @@
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	ft_check_line(char *map_line, char wall)
+{
+	int		i;
+
+	i = 0;
+	while (map_line[i])
+	{
+		if (map_line[i] != wall)
+		{
+			ft_print_error("Error\nMap line not close\n");
+			return (0);
+		}
+		i++;
+	}
+	return (1);
+}

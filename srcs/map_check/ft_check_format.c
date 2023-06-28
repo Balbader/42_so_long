@@ -11,3 +11,29 @@
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	ft_check_format(char **map)
+{
+	int		y;
+	int		x;
+	int		count_x;
+
+	x = 0;
+	y = 0;
+	count_x = 0;
+	while (map[0][count_x])
+		count_x++;
+	while (map[y] != NULL)
+	{
+		while (map[y][x])
+			x++;
+		if (x != count_x)
+		{
+			ft_print_error("Error.\nExpected Format: Square or Rectangle\n");
+			return (0);
+		}
+		x = 0;
+		y++;
+	}
+	return (1);
+}
