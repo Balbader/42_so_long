@@ -40,6 +40,21 @@ GNL_FILES			:=	\
 						get_next_line_utils.c
 GNL					:=	$(addprefix $(GNL_DIR), $(GNL_FILES))
 
+LIBFT_DIR			:=	libft/
+LIBFT_FILES			:=	\
+						ft_atoi.c \
+						ft_isdigit.c \
+						ft_itoa.c \
+						ft_putchar \
+						ft_putstr.c \
+						ft_split.c \
+						ft_strchr.c \
+						ft_strdup.c \
+						ft_strjoin.c \
+						ft_strlen.c \
+						ft_strncpy.c
+LIBFT				:=	$(addprefix $(LIBFT_DIR), $(LIBFT_FILES))
+
 
 
 # INGREDIENTS #################################################################
@@ -54,6 +69,7 @@ SRCS				:=	\
 						$(GAME) \
 						$(PRINTF) \
 						$(GNL) \
+						$(LIBFT) \
 						main.c
 SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)
 
