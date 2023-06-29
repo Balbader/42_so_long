@@ -22,10 +22,10 @@ MAP_FILES			:=	\
 						ft_run_map.c
 MAP					:=	$(addprefix $(MAP_DIR), $(MAP_FILES))
 
-MAP_CHECK_DIR		:=	map/
+MAP_CHECK_DIR		:=	map_check/
 MAP_CHECK_FILES		:=	\
 						ft_check_column.c \
-						ft_check_content.c \
+						t_check_content.c \
 						ft_check_format.c \
 						ft_check_line.c \
 						ft_check_other.c
