@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-void	set_content(t_cnt *content)
+void	ft_set_content(t_cnt *content)
 {
 	content->exit = 'E';
 	content->player = 'P';
