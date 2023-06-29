@@ -22,9 +22,9 @@ void	ft_render_main(t_data *data)
 		free(data->mlx_ptr);
 		return ;
 	}
-	mlx_loop_hook(data->mlx_ptr, &render, data);
-	mlx_hook(data->mlx_win, KeyRelease, KeyReleaseMask, &key_press, data);
-	mlx_hook(data->mlx_win, 17, 0, &end, data);
+	mlx_loop_hook(data->mlx_ptr, &ft_render, data);
+	mlx_hook(data->mlx_win, KeyRelease, KeyReleaseMask, &ft_key_press, data);
+	mlx_hook(data->mlx_win, 17, 0, &ft_end_game, data);
 	mlx_loop(data->mlx_ptr);
-	end(data);
+	ft_end_game(data);
 }
