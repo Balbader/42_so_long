@@ -69,20 +69,6 @@ typedef struct data_s
 	int		count;
 }				t_data;
 
-// utils.c
-int				ft_is_duplicate(char *str);
-void			*ft_print_error(char *str);
-long long int	ft_atoi(const char *str);
-size_t			ft_strlen(const char *str);
-int				ft_strchr(char *str, char *cmp);
-int				ft_isdigit(int c);
-void			ft_putchar(char c);
-void			ft_putstr(char *str);
-char			*ft_itoa(int n);
-char			**ft_split(char *str, char sep);
-char			*ft_strdup(char *str);
-char			*ft_strncpy(char *str, int nb);
-char			*ft_strjoin(char *s1, char *s2);
 
 // map_checker.c
 int				ft_check_column(char *map_line, char wall, t_data *data);
@@ -134,5 +120,20 @@ void			ft_print_str(char *str, int *tot_len);
 // gnl
 char			*ft_stradd(char *str, char buff);
 int				ft_get_next_line(int fd, char **str);
+
+// utils.c
+int				ft_is_duplicate(char *str);
+void			*ft_print_error(char *str);
+long long int	ft_atoi(const char *str);
+size_t			ft_strlen(const char *str);
+int				ft_strchr(char *str, char *cmp);
+int				ft_isdigit(int c);
+void			ft_putchar(char c);
+void			ft_putstr(char *str);
+char			*ft_itoa(int n);
+char			**ft_split(char *str, char sep);
+char			*ft_strdup(char *str);
+char			*ft_strncpy(char *str, int nb);
+char			*ft_strjoin(char *s1, char *s2);
 
 #endif
