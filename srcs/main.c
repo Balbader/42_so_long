@@ -33,7 +33,7 @@ int	main(int ac, char **av)
 			ft_render_main(&data);
 		}
 		else
-			end(&data);
+			ft_end_game(&data);
 	}
 	return (1);
 }
