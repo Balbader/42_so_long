@@ -15,7 +15,7 @@
 int	ft_key_press(int keysym, t_data *data)
 {
 	if (keysym == XK_Escape)
-		ft_end(data);
+		ft_end_game(data);
 	if (keysym == XK_w)
 		ft_render_top(data);
 	if (keysym == XK_d)
