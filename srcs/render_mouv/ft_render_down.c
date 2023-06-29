@@ -30,11 +30,11 @@ void	ft_render_down(t_data *data)
 		}
 		else
 		{
-			if (ft_check_collect(data) == 0)
+			if (ft_check_collectible(data) == 0)
 			{
 				ft_printf("Congratulations, you have won the game with a");
 				ft_printf(" total count of %d moves !\n", data->count);
-				end(data);
+				ft_end_game(data);
 			}
 		}
 	}
