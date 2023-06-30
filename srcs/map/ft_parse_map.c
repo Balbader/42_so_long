@@ -36,4 +36,3 @@ char	**ft_parse_map(int fd, t_data *data)
 		return (ft_free_map(data));
 	return (data->map);
 }
-
