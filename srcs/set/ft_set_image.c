@@ -17,7 +17,7 @@ void	ft_set_image(t_data *data)
 	data->img.height = 80;
 	data->img.width = 80;
 	data->img.floor = "./rsrc/floor_texture.xpm";
-	data->img.wall = "./rsrc/tree_texture.xpm";
+	data->img.wall = "./rsrc/wall_texture.xpm";
 	data->img.collect = "./rsrc/collect.xpm";
 	data->img.player = "./rsrc/mario_player.xpm";
 	data->img.exit = "./rsrc/exit_texture.xpm";
