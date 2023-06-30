@@ -22,7 +22,7 @@
 # include <X11/X.h>
 # include <fcntl.h>
 
-typedef struct img_s
+typedef struct s_img
 {
 	void	*img_floor;
 	void	*img_player;
@@ -38,7 +38,7 @@ typedef struct img_s
 	char	*exit;
 }				t_img;
 
-typedef struct cnt_s
+typedef struct s_cnt
 {
 	char	exit;
 	char	collect;
@@ -50,13 +50,13 @@ typedef struct cnt_s
 	int		count_c;
 }				t_cnt;
 
-typedef struct pos_s
+typedef struct s_pos
 {
 	int		x;
 	int		y;
 }				t_pos;
 
-typedef struct data_s
+typedef struct s_data
 {
 	void	*mlx_ptr;
 	void	*mlx_win;
