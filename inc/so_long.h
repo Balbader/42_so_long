@@ -38,7 +38,7 @@ typedef struct s_img
 	char	*exit;
 }				t_img;
 
-typedef struct s_cnt
+typedef struct s_content
 {
 	char	exit;
 	char	collect;
@@ -48,7 +48,7 @@ typedef struct s_cnt
 	int		count_p;
 	int		count_e;
 	int		count_c;
-}				t_cnt;
+}				t_content;
 
 typedef struct s_pos
 {
@@ -58,22 +58,21 @@ typedef struct s_pos
 
 typedef struct s_data
 {
-	void	*mlx_ptr;
-	void	*mlx_win;
-	int		width;
-	int		height;
-	char	**map;
-	t_cnt	content;
-	t_img	img;
-	t_pos	pos;
-	int		count;
+	void		*mlx_ptr;
+	void		*mlx_win;
+	int			width;
+	int			height;
+	char		**map;
+	t_content	content;
+	t_img		img;
+	t_pos		pos;
+	int			count;
 }				t_data;
-
 
 // map_checker.c
 int				ft_check_column(char *map_line, char wall, t_data *data);
 int				ft_check_line(char *map_line, char wall);
-int				ft_check_other(char *map_line, t_cnt *content);
+int				ft_check_other(char *map_line, t_content *content);
 int				ft_check_format(char **map);
 void			ft_check_content(t_data *data);
 
@@ -97,7 +96,7 @@ void			ft_render_left(t_data *data);
 void			ft_render_down(t_data *data);
 
 // set.c
-void			ft_set_content(t_cnt *content);
+void			ft_set_content(t_content *content);
 void			ft_set_image(t_data *data);
 
 // texture.c
