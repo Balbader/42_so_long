@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-int	ft_check_other(char *map_line, t_cnt *content)
+int	ft_check_other(char *map_line, t_content *content)
 {
 	int		i;
 
