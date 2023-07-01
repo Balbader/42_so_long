@@ -17,6 +17,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <stdarg.h>
+# include <stddef.h>
 # include <string.h>
 # include <X11/keysym.h>
 # include <X11/X.h>
