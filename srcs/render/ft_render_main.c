@@ -14,6 +14,8 @@
 
 void	ft_render_main(t_data *data)
 {
+	// data->width = 10;
+	// data->height = 10;
 	data->mlx_win = mlx_new_window(data->mlx_ptr,
 			(data->width * data->img.width), (data->height * data->img.height),
 			"42 So_Long");
