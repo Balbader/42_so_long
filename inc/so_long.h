@@ -16,13 +16,13 @@
 # include "../mlx_linux/mlx.h"
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
 # include <stdio.h>
 # include <stdarg.h>
 # include <stddef.h>
-# include <string.h>
+# include <stdbool.h>
 # include <X11/keysym.h>
 # include <X11/X.h>
-# include <fcntl.h>
 
 typedef struct s_img
 {
