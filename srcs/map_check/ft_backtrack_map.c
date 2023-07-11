@@ -11,6 +11,12 @@
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include <stdio.h>
+#include <stdbool.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include "libft.h"
+#include "get_next_line.h"
 
 #define MAX_HEIGHT 100
 #define MAX_WIDTH 100
