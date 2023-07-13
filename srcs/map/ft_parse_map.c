@@ -17,7 +17,7 @@ char	**ft_parse_map(int fd, t_data *data)
 	int		i;
 
 	i = 1;
-	data->map = ft_split(ft_get_map(fd), '\n');
+	data->map = ft_split(ft_get_map_line(fd), '\n');
 	ft_check_content(data);
 	if (!(ft_check_format(data->map)))
 		return (ft_free_map(data));
