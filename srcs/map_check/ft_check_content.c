@@ -12,6 +12,8 @@
 
 #include "so_long.h"
 
+/* Counts the tot number of player, collectibles and exits */
+
 void	ft_check_content(t_data *data)
 {
 	int		i;
