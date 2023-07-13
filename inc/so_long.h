@@ -73,15 +73,15 @@ typedef struct s_data
 
 // map_checker.c
 int				ft_check_column(char *map_line, char wall, t_data *data);
-int				ft_check_line(char *map_line, char wall);
+int				ft_check_wall(char *map_line, char wall);
 int				ft_check_other(char *map_line, t_content *content);
 int				ft_check_format(char **map);
 void			ft_check_content(t_data *data);
 
 // map.c
-char			*ft_get_map(int fd);
+char			*ft_get_map_line(int fd);
 char			**ft_parse_map(int fd, t_data *data);
-char			**ft_run_map(char **str, t_data *data);
+char			**ft_run_map(char **av, t_data *data);
 void			*ft_free_map(t_data *data);
 
 // render.c
