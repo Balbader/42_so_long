@@ -12,6 +12,11 @@
 
 #include "so_long.h"
 
+/*
+ * Check if there is only 1 exit && 1 player
+ * checks if there is other symbols than the ones allowed
+*/
+
 int	ft_check_map_viability(char *map_line, t_content *content)
 {
 	int		i;
