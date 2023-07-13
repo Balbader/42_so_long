@@ -12,6 +12,8 @@
 
 #include "so_long.h"
 
+/* checks if all map lines are the same lenth */
+
 int	ft_check_format(char **map)
 {
 	int		y;
