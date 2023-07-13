@@ -12,20 +12,20 @@
 
 #include "so_long.h"
 
-static int	ft_charcpt(char *str, char chr)
+static int	ft_wdcount(char *str, char chr)
 {
 	int	i;
-	int	ret;
+	int	count;
 
 	i = 0;
-	ret = 0;
+	count = 0;
 	while (str[i])
 	{
 		if (str[i] == chr)
-			ret++;
+			count++;
 		i++;
 	}
-	return (ret);
+	return (count);
 }
 
 static int	ft_strnchr(char *str, char sep)
@@ -51,7 +51,7 @@ char	**ft_split(char *str, char sep)
 
 	i = 0;
 	y = 0;
-	ret = (char **)malloc(sizeof(char *) * (ft_charcpt(str, sep) + 1));
+	ret = (char **)malloc(sizeof(char *) * (ft_wdcount(str, sep) + 1));
 	if (ret == NULL)
 		return (NULL);
 	while (str[i])
