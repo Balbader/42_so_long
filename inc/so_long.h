@@ -74,7 +74,7 @@ typedef struct s_data
 // map_checker.c
 int				ft_check_column(char *map_line, char wall, t_data *data);
 int				ft_check_wall(char *map_line, char wall);
-int				ft_check_other(char *map_line, t_content *content);
+int				ft_check_map_viability(char *map_line, t_content *content);
 int				ft_check_format(char **map);
 void			ft_check_content(t_data *data);
 
