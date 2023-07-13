@@ -21,7 +21,7 @@ char	**ft_parse_map(int fd, t_data *data)
 	ft_check_content(data);
 	if (!(ft_check_format(data->map)))
 		return (ft_free_map(data));
-	if (!(ft_check_line(data->map[0], data->content.wall)))
+	if (!(ft_check_wall(data->map[0], data->content.wall)))
 		return (ft_free_map(data));
 	while (data->map[i] != NULL)
 	{
@@ -32,7 +32,7 @@ char	**ft_parse_map(int fd, t_data *data)
 		i++;
 	}
 	data->height = i;
-	if (!(ft_check_line(data->map[i - 1], data->content.wall)))
+	if (!(ft_check_wall(data->map[i - 1], data->content.wall)))
 		return (ft_free_map(data));
 	return (data->map);
 }
