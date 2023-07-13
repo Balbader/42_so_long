@@ -12,17 +12,17 @@
 
 #include "so_long.h"
 
-char	**ft_run_map(char **str, t_data *data)
+char	**ft_run_map(char **av, t_data *data)
 {
 	int		fd;
 
 	fd = 0;
 	data->map = NULL;
-	if (ft_strchr(str[1], ".ber") == 0)
+	if (ft_strchr(av[1], ".ber") == 0)
 		return (ft_print_error("Error.\nNo '.ber' file detected.\n"));
 	else
 	{
-		fd = open(str[1], O_RDONLY);
+		fd = open(av[1], O_RDONLY);
 		if (fd > 0)
 			data->map = ft_parse_map(fd, data);
 		else
