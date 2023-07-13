@@ -12,6 +12,10 @@
 
 #include "so_long.h"
 
+/*
+ * Takes the 
+*/
+
 char	**ft_parse_map(int fd, t_data *data)
 {
 	int		i;
@@ -27,7 +31,7 @@ char	**ft_parse_map(int fd, t_data *data)
 	{
 		if (!(ft_check_column(data->map[i], data->content.wall, data)))
 			return (ft_free_map(data));
-		else if (!(ft_check_other(data->map[i], &(data->content))))
+		else if (!(ft_check_map_viability(data->map[i], &(data->content))))
 			return (ft_free_map(data));
 		i++;
 	}
