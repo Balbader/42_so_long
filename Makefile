@@ -33,7 +33,7 @@ GNL					:=	$(addprefix $(GNL_DIR), $(GNL_FILES))
 MAP_DIR				:=	map/
 MAP_FILES			:=	\
 						ft_free_map.c \
-						ft_get_map.c \
+						ft_get_map_line.c \
 						ft_parse_map.c \
 						ft_run_map.c
 MAP					:=	$(addprefix $(MAP_DIR), $(MAP_FILES))
@@ -43,8 +43,8 @@ MAP_CHECK_FILES		:=	\
 						ft_check_column.c \
 						ft_check_content.c \
 						ft_check_format.c \
-						ft_check_line.c \
-						ft_check_other.c
+						ft_check_other.c \
+						ft_check_wall.c
 MAP_CHECK			:=	$(addprefix $(MAP_CHECK_DIR), $(MAP_CHECK_FILES))
 
 RENDER_DIR			:=	render/
