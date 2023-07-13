@@ -43,7 +43,7 @@ MAP_CHECK_FILES		:=	\
 						ft_check_column.c \
 						ft_check_content.c \
 						ft_check_format.c \
-						ft_check_other.c \
+						ft_check_map_viability.c \
 						ft_check_wall.c
 MAP_CHECK			:=	$(addprefix $(MAP_CHECK_DIR), $(MAP_CHECK_FILES))
 
