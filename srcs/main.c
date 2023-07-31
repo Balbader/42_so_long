@@ -12,6 +12,9 @@
 
 #include "so_long.h"
 
+/*
+ * 1. Check the number o
+*/
 int	main(int ac, char **av)
 {
 	t_data	data;
