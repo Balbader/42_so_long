@@ -12,7 +12,11 @@
 
 #include "so_long.h"
 
-/* Uses GNL to open and read map.ber */
+/*
+ 	We read the map line by line using get_next_line, retrieving all the
+	rows of the map. We concatenate them into another variable called tmp_buff,
+	so that we have one huge line with the entire map.
+*/
 
 char	*ft_get_map_line(int fd)
 {
@@ -38,6 +42,6 @@ char	*ft_get_map_line(int fd)
 		}
 		return (buff);
 	}
-	ft_print_error("Error.\n'.ber' not readable.\n");
+	ft_print_error("Error! '.ber' not readable.\n");
 	return (NULL);
 }
