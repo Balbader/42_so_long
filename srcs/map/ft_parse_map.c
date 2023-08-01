@@ -13,7 +13,10 @@
 #include "so_long.h"
 
 /*
- * Takes the 
+	We apply ft_split to it, generating a clean matrix within the
+	structure (in reality, we create two matrices because we will later
+	need a copy of the map when using ft_flood_fill).
+	Additionally, we will check if the file starts with a '\n'.
 */
 
 char	**ft_parse_map(int fd, t_data *data)
@@ -22,6 +25,7 @@ char	**ft_parse_map(int fd, t_data *data)
 
 	i = 1;
 	data->map = ft_split(ft_get_map_line(fd), '\n');
+	data->map_cpy = ft_split(ft_get_map_line(fd), '\n');
 	ft_check_content(data);
 	if (!(ft_check_format(data->map)))
 		return (ft_free_map(data));
