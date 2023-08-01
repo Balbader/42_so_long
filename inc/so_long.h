@@ -65,6 +65,7 @@ typedef struct s_data
 	int			width;
 	int			height;
 	char		**map;
+	char		**map_cpy;
 	t_content	content;
 	t_img		img;
 	t_pos		pos;
