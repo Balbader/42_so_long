@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-void	ft_flood_fill()
+void	ft_flood_fill(t_data *data, t_pos pos)
 {
 
 }
