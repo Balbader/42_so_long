@@ -20,6 +20,7 @@
 
 # include <stdlib.h>
 # include <stdio.h>
+#include <stddef.h>
 # include <X11/X.h>
 
 #endif // !SO_LONG_H
