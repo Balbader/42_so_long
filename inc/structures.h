@@ -13,6 +13,8 @@
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
 
+# include <stddef.h>
+
 /* Position Struct */
 typedef struct s_pos
 {
