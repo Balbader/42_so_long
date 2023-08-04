@@ -19,7 +19,7 @@
 
 # include <stdlib.h>
 # include <stdio.h>
-#include <stddef.h>
+# include <stddef.h>
 # include <X11/X.h>
 
 /* GNL */
@@ -35,5 +35,16 @@ void	ft_print_unsigned(unsigned int u, int *tot_len);
 void	ft_print_ptr(size_t ptr, int *tot_len);
 void	ft_print_char(char c, int *tot_len);
 void	ft_print_str(char *str, int *tot_len);
+
+/* ft_flood_fill */
+bool	fill(int y, int x, t_map *map);
+void	ft_flood_fillflood(int y, int x, t_map *map);
+
+/* map validation */
+bool	ft_check_path(t_map *map);
+void	ft_parse_map(const char *path_to_map, t_map *map);
+char	*read_map(int fd);
+
+
 
 #endif // !SO_LONG_H
