@@ -27,7 +27,7 @@ typedef struct s_flood
 {
 	bool			exit_reached;
 	unsigned int	collectibles_collected;
-}	t_flood;
+}				t_flood;
 
 /* Image Struct */
 typedef struct s_img
@@ -73,7 +73,7 @@ typedef struct s_move
 	int			down;
 	int			left;
 	int			right;
-}					t_move;
+}				t_move;
 
 /* Player Struct */
 typedef struct s_player
@@ -83,7 +83,7 @@ typedef struct s_player
 	t_move			move;
 	unsigned int	collectible_count;
 	unsigned int	move_count;
-}					t_player;
+}				t_player;
 
 /* MLX Variables Struct */
 typedef struct s_vars
