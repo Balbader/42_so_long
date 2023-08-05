@@ -43,7 +43,7 @@ void	ft_flood_fillflood(int y, int x, t_map *map);
 /* map validation */
 bool	ft_check_path(t_map *map);
 void	ft_parse_map(const char *path_to_map, t_map *map);
-char	*read_map(int fd);
+char	*ft_read_map(int fd);
 
 
 
