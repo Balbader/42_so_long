@@ -45,16 +45,18 @@ bool	ft_check_path(t_map *map);
 void	ft_parse_map(const char *path_to_map, t_map *map);
 char	*ft_read_map(int fd);
 
-/* set texture */
-// load_textures
-void	ft_init_texture(t_vars *vars);
+/* set textures */
+/* init textures */
+void	ft_init_textures(t_vars *vars);
 t_img	ft_load_texture_to_img(t_vars *vars, char *path);
-// load_textures1
+
+/* init textures utils 1 */
 void	ft_set_map_exit(t_vars *vars);
 void	ft_set_empty_space(t_vars *vars);
 void	ft_set_collectibles(t_vars *vars);
 void	ft_set_wall(t_vars *vars);
-// load_textures2
+
+/* init textures utils 2 */
 void	ft_set_pc_up(t_vars *vars);
 void	ft_set_pc_down(t_vars *vars);
 void	ft_set_pc_left(t_vars *vars);
