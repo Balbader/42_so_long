@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-char	*read_map(int fd)
+char	*ft_read_map(int fd)
 {
 	char	*line;
 	char	*text;
