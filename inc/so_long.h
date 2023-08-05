@@ -22,19 +22,6 @@
 # include <stddef.h>
 # include <X11/X.h>
 
-/* GNL */
-char	*get_next_line(int fd);
-char	*strjoin(char *line, char *buffer);
-bool	ft_manage_buffer(char *buffer);
-
-/* ft_printf */
-int		ft_printf(const char *str, ...);
-void	ft_print_nb(int nb, int *tot_len);
-void	ft_print_hexa(unsigned int nb, char c, int *tot_len);
-void	ft_print_unsigned(unsigned int u, int *tot_len);
-void	ft_print_ptr(size_t ptr, int *tot_len);
-void	ft_print_char(char c, int *tot_len);
-void	ft_print_str(char *str, int *tot_len);
 
 /* ft_flood_fill */
 bool	fill(int y, int x, t_map *map);
@@ -63,6 +50,27 @@ void	ft_set_pc_left(t_vars *vars);
 void	ft_set_pc_right(t_vars *vars);
 void	ft_set_player(t_vars *vars);
 
+/* GNL */
+char	*get_next_line(int fd);
+char	*strjoin(char *line, char *buffer);
+bool	ft_manage_buffer(char *buffer);
+
+/* ft_printf */
+int		ft_printf(const char *str, ...);
+void	ft_print_nb(int nb, int *tot_len);
+void	ft_print_hexa(unsigned int nb, char c, int *tot_len);
+void	ft_print_unsigned(unsigned int u, int *tot_len);
+void	ft_print_ptr(size_t ptr, int *tot_len);
+void	ft_print_char(char c, int *tot_len);
+void	ft_print_str(char *str, int *tot_len);
+
+/* libft */
+int		ft_strlen(char *str);
+char	*ft_itoa(int n);
+char	*ft_strdup(const char *str);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	**ft_split(const char *s, char c);
+void	ft_free_tab(char **tab);
 
 
 #endif // !SO_LONG_H
