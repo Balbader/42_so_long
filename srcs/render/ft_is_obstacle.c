@@ -10,4 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "so_long.h"
 
+bool	ft_is_obstacle(char grid_value)
+{
+	return (grid_value == WALL || grid_value == PC_UP || \
+			grid_value == PC_DOWN || grid_value == PC_LEFT || \
+			grid_value == PC_RIGHT);
+}

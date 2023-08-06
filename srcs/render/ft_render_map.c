@@ -10,4 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "so_long.h"
 
+void	ft_render_map(t_vars *vars)
+{
+	t_pos	pos;
+	char	current_sprite;
+
+	pos.y = 0;
+	while ((size_t)pos.y < vars->map.height)
+	{
+		pos.x = 0;
+		while ((size_t)pos.x < vars->map.width)
+		{
+			current_sprite = vars->map.grid[(int)pos.y][(int)pos.x];
+			put_sprite(vars, pos, current_sprite);
+			pos.x++;
+		}
+		pos.x = 0;
+		pos.y++;
+	}
+}

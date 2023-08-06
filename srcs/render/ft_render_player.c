@@ -10,4 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "so_long.h"
 
+void	ft_render_player(t_vars *vars)
+{
+	copy_image(vars->player.img, vars->player.pos, &vars->final_image);
+}
