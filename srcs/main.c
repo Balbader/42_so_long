@@ -77,7 +77,7 @@ int	main(int ac, char **av)
 	ft_printf("[ "GREEN"OK"RESET" ] | %s" \
 	" is a valid map!\n", av[1]);
 	ft_init_win(&vars);
-	load_textures(&vars);
+	ft_load_textures(&vars);
 	ft_printf("[ "BLUE"GO"RESET" ] |" \
 	" Your mission is to get all the ducks and exit the map.\n");
 
@@ -86,6 +86,6 @@ int	main(int ac, char **av)
 	mlx_hook(vars.win, DestroyNotify, KeyPressMask, &close_window, &vars);
 	mlx_loop_hook(vars.mlx, &render, &vars);
 	mlx_loop(vars.mlx);
-	ft_free_matrix(vars.map.grid);
-	ft_free_multiple(2, vars.map.map_path, vars.mlx);
+	ft_free_tab(vars.map.grid);
+	ft_free_tabs(2, vars.map.map_path, vars.mlx);
 }
