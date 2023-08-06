@@ -26,9 +26,9 @@ bool	ft_check_path(t_map *map)
 	ft_flood_fill(start_pos.y, start_pos.x, &map_copy);
 	if (map->collectible_count != map_copy.flood.collectibles_collected)
 	{
-		ft_free_matrix(map_copy.grid);
+		ft_free_tab(map_copy.grid);
 		return (false);
 	}
-	ft_free_matrix(map_copy.grid);
+	ft_free_tab(map_copy.grid);
 	return (map_copy.flood.exit_reached);
 }
