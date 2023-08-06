@@ -23,7 +23,7 @@ char	*ft_read_map(int fd)
 	while (line != NULL)
 	{
 		temp = ft_strjoin(text, line);
-		ft_free_multiple(2, text, line);
+		ft_free_tabs(2, text, line);
 		text = temp;
 		line = get_next_line(fd);
 	}
