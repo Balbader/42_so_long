@@ -77,7 +77,7 @@ int	main(int ac, char **av)
 	ft_printf("[ "GREEN"OK"RESET" ] | %s" \
 	" is a valid map!\n", av[1]);
 	ft_init_win(&vars);
-	ft_load_textures(&vars);
+	ft_init_textures(&vars);
 	ft_printf("[ "BLUE"GO"RESET" ] |" \
 	" Your mission is to get all the ducks and exit the map.\n");
 
