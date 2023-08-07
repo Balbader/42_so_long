@@ -12,54 +12,6 @@
 
 #include "so_long.h"
 
-/* Init MLX window */
-void	ft_init_win(t_vars *vars)
-{
-	vars->win_width = vars->map.width * TILE_SIZE ;
-	vars->win_height = vars->map.height * TILE_SIZE;
-	vars->mlx = mlx_init();
-	vars->win = mlx_new_window(vars->mlx, \
-				vars->win_width, vars->win_height, "so_long");
-	if (!vars->win)
-		exit(1);
-	vars->final_image.img = mlx_new_image(vars->mlx, \
-							vars->win_width, vars->win_height);
-	vars->final_image.addr = mlx_get_data_addr(vars->final_image.img, \
-	&vars->final_image.bpp, &vars->final_image.line_len, \
-	&vars->final_image.endian);
-	vars->player.pos = find_in_map(vars->map.grid, MAP_START);
-}
-
-/* returns true if '.ber' file */
-bool	ft_check_file_extension(const char *path_to_map)
-{
-	size_t	len;
-
-	len = ft_strlen(path_to_map);
-	if (len < 5 || ft_strncmp(path_to_map + (len - 4), ".ber", 4) == 0)
-		return (true);
-	return (false);
-}
-
-/* Checks if ac == 2 && if file is ".ber" */
-bool	ft_check_args(int ac, char **av)
-{
-	if (ac != 2)
-	{
-		(void)av;
-		ft_printf("[ "RED"!!"RESET" ] | Wrong arguments number" \
-				RED" <./so_long path/to/map.ber>\n"RESET);
-		return (false);
-	}
-	if (ft_check_file_extension(av[1]) != true)
-	{
-		ft_printf("[ "RED"!!"RESET" ] | "RED"%s"RESET \
-				" is not a valid map.\n", av[1]);
-		return (false);
-	}
-	return (true);
-}
-
 int	main(int ac, char **av)
 {
 	static t_vars	vars;
