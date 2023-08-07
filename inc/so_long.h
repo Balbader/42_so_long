@@ -34,6 +34,7 @@ char	*ft_read_map(int fd);
 
 /* set textures */
 /* init textures */
+void	ft_init_win(t_vars *vars);
 void	ft_init_textures(t_vars *vars);
 t_img	ft_load_texture_to_img(t_vars *vars, char *path);
 
@@ -49,6 +50,14 @@ void	ft_set_pc_down(t_vars *vars);
 void	ft_set_pc_left(t_vars *vars);
 void	ft_set_pc_right(t_vars *vars);
 void	ft_set_player(t_vars *vars);
+
+/* utils */
+int		ft_close_window(t_vars *vars);
+int		ft_handle_key(int key, t_vars *vars);
+char	**ft_duplicate_map(t_map *map);
+void	ft_map_error(t_map *map);
+t_pos	ft_find_pos(char **map, char stuff);
+bool	ft_check_file_extension(const char *file_name);
 
 /* GNL */
 char	*get_next_line(int fd);
