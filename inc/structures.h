@@ -14,6 +14,7 @@
 # define STRUCTURES_H
 
 # include <stddef.h>
+# include <stdbool.h>
 
 /* Position Struct */
 typedef struct s_pos
