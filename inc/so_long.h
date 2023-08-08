@@ -31,14 +31,18 @@
 #  define BUFFER_SIZE 42
 # endif
 
+int				main(int ac, char **av);
+
 /* map check */
 bool			fill(int y, int x, t_map *map);
 void			ft_flood_fill(int y, int x, t_map *map);
+void			ft_map_size(t_map *map);
 bool			ft_check_path(t_map *map);
 bool			ft_validate_content(t_map *map);
 bool			ft_check_if_open(t_map *map);
 bool			ft_check_format(t_map *map);
 bool			ft_count_content(t_map *map, char c);
+bool			ft_validate_map(t_vars *vars);
 
 /* map_parsing */
 void			ft_parse_map(const char *path_to_map, t_map *map);
@@ -85,6 +89,7 @@ char			**ft_duplicate_map(t_map *map);
 void			ft_map_error(t_map *map);
 t_pos			ft_find_pos(char **map, char stuff);
 bool			ft_check_file_extension(const char *file_name);
+bool			ft_check_main_args(int ac, char **av);
 
 /* GNL */
 char			*get_next_line(int fd);
