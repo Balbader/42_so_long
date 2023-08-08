@@ -95,10 +95,10 @@ UTILS				=	$(addprefix $(UTILS_DIR), $(UTILS_FILES))
 ##################################
 #   		INGREDIENTS 		 #
 ##################################
-INC_DIR				=	./inc/
-INC_FILES			=	
+INC_DIR				=	./inc/ \
+						./inc/mlx_linux/
 SRCS_DIR			=	./srcs/
-SRCS_FILES			=	$(PRINTF) \
+SRCS				=	$(PRINTF) \
 						$(GNL) \
 						$(LIBFT) \
 						$(MAP_CHECK) \
@@ -107,12 +107,15 @@ SRCS_FILES			=	$(PRINTF) \
 						$(SET_TEXTURE) \
 						$(UTILS) \
 						main.c
-SRCS				=	$(addprefix $(SRCS_DIR), $(SRCS_FILES))
 SRCS				=	$(SRCS:%=$(SRCS_DIR)/%)
 
+BUILD_DIR			=	.build
+OBJS				=	$(SRCS:$(SRCS_DIR)/%.c=$(BUILD_DIR)/%.o)
+DEPS				=	$(OBJS:.o=.d)
 
-##################################
-#         COMPILATION 		 	 #
-##################################
-CC		=	cc
-CFLAGS	=	-Wall -Wextra -Werror -fsanitize=address -static-libasan
+CC					=	cc
+CFLAGS				=	-Wall -Wextra -Werror -fsanitize=address -static-libasan
+IFLAGS				=	$(addprefix -I, $(INC_DIR))
+
+RM					=	rm -r -f
+DIR_DUP				=	mkdir -p $(@D)
