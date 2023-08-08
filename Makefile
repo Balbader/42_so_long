@@ -160,12 +160,13 @@ $(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
 clean:
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing object files...$(RESET)"
 	@make -sC $(INC_MLX) clean > /dev/null
+	$(RM) $(BUILD_DIR) $(DEPS)
 	@rm -rf $(OBJ) obj
 	@echo "[" "$(GREEN)OK$(RESET)" "] | Object files removed."
 
 fclean: clean
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing binary files...$(RESET)"
-	@rm -rf $(NAME)
+	$(RM) $(NAME)
 	@echo "[" "$(GREEN)OK$(RESET)" "] | Binary file removed."
 
 re:
