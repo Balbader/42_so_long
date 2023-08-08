@@ -14,14 +14,13 @@
 
 void	ft_init_textures(t_vars *vars)
 {
-
 	ft_set_wall(vars);
 	ft_set_pc_up(vars);
 	ft_set_pc_down(vars);
 	ft_set_pc_left(vars);
 	ft_set_pc_right(vars);
 	ft_set_map_exit(vars);
-	ft_set_empty_space(vars); // rename to floor
+	ft_set_empty_space(vars);
 	ft_set_collectibles(vars);
 	ft_set_player(vars);
 }
