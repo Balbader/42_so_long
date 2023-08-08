@@ -15,7 +15,7 @@
 int	ft_handle_key(int key, t_vars *vars)
 {
 	if (key == ESCAPE)
-		close_window(vars);
+		ft_close_window(vars);
 	if (key == W || key == UP)
 		vars->player.move.up = 1;
 	if (key == S || key == DOWN)
