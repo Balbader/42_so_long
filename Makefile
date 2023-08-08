@@ -41,7 +41,8 @@ LIBFT_FILES			:=	ft_free_tab.c \
 						ft_split.c \
 						ft_strdup.c \
 						ft_strjoin.c \
-						ft_strlen.c
+						ft_strlen.c \
+						ft_strncmp.c
 LIBFT				:=	$(addprefix $(LIBFT_DIR), $(LIBFT_FILES))
 
 MAP_CHECK_DIR		:=	map_check/
@@ -64,7 +65,7 @@ RENDER_FILES		:=	ft_confirm_move.c \
 						ft_get_pixel.c \
 						ft_is_obstacle.c \
 						ft_move_player.c \
-						ft_print_collectible.c \
+						ft_print_collectibles.c \
 						ft_print_moves.c \
 						ft_put_pixel.c \
 						ft_put_sprite_to_map.c \
@@ -161,7 +162,7 @@ clean:
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing object files...$(RESET)"
 	@make -sC $(INC_MLX) clean > /dev/null
 	$(RM) $(BUILD_DIR) $(DEPS)
-	@rm -rf $(OBJ) obj
+	# @rm -rf $(OBJ) obj
 	@echo "[" "$(GREEN)OK$(RESET)" "] | Object files removed."
 
 fclean: clean
