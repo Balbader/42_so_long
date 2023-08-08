@@ -22,7 +22,7 @@ NAME				:=	so_long
 FT_PRINTF_DIR		:=	ft_printf/
 FT_PRINTF_FILES		:=	ft_print_char.c \
 						ft_print_hexa.c \
-						ft_printf_nb.c \
+						ft_print_nb.c \
 						ft_print_ptr.c \
 						ft_print_str.c \
 						ft_print_unsigned.c \
@@ -102,7 +102,7 @@ INC_DIR				:=	./inc/
 
 SRCS_DIR			:=	./srcs/
 SRCS				:=	\
-						$(PRINTF) \
+						$(FT_PRINTF) \
 						$(GNL) \
 						$(LIBFT) \
 						$(MAP_CHECK) \
@@ -113,9 +113,9 @@ SRCS				:=	\
 						main.c
 SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)
 
-MLX					:=	libmlx.a
+MLX					:=	inc/mlx_linux/libmlx.a
 INC_MLX				:=	./inc/mlx_linux/
-LIB					:=	-L ./inc/mlx_linux -lXext -lX11
+LIB					:=	-L ./inc/mlx_linux -lmlx -lXext -lX11
 
 BUILD_DIR			:=	.build
 OBJS				:=	$(SRCS:$(SRCS_DIR)/%.c=$(BUILD_DIR)/%.o)
@@ -142,11 +142,11 @@ RESET   			:= \033[0m
 ##################################
 #   		RECIPES				 #
 ##################################
-all: $(NAME)
+all: $(MLX) $(NAME)
 
-$(NAME): $(MLX) $(OBJS)
+$(NAME): $(OBJS)
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Compiling $(NAME)..."
-	$(CC) $(CFLAGS) -o $(LIB) $(NAME) 
+	@$(CC) $(CFLAGS) -o $@ $^ $(LIB) 
 	@echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) ready!"
 
 $(MLX):
@@ -155,25 +155,24 @@ $(MLX):
 	@echo "[" "$(GREEN)OK$(RESET)" "] | Minilibx ready!"
 
 $(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
-	$(DIR_DUP)
-	$(CC) $(CFLAGS) $(IFLAGS) -c -o $@ $<
+	@$(DIR_DUP)
+	@$(CC) $(CFLAGS) $(IFLAGS) -c -o $@ $<
 
 -include $(DEPS)
 
 clean:
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing object files...$(RESET)"
 	@make -sC $(INC_MLX) clean > /dev/null
-	$(RM) $(BUILD_DIR) $(DEPS)
-	@rm -rf $(OBJ) obj
+	@$(RM) $(BUILD_DIR) $(DEPS)
 	@echo "[" "$(GREEN)OK$(RESET)" "] | Object files removed."
 
 fclean: clean
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing binary files...$(RESET)"
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 	@echo "[" "$(GREEN)OK$(RESET)" "] | Binary file removed."
 
 re:
-	$(MAKE) fclean
-	$(MAKE) all
+	@$(MAKE) fclean
+	@$(MAKE) all
 
 .PHONY: all clean fclean re
