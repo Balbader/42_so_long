@@ -16,7 +16,7 @@ int	main(int ac, char **av)
 {
 	static t_vars	vars;
 
-	if (ft_check_args(ac, av) != true)
+	if (ft_check_main_args(ac, av) != true)
 		return (EXIT_FAILURE);
 	ft_parse_map(av[1], &vars.map);
 	if (validate_map(&vars) != true)
