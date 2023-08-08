@@ -16,14 +16,9 @@ int	main(int ac, char **av)
 {
 	static t_vars	vars;
 
-	// 1. Check arguments
 	if (ft_check_args(ac, av) != true)
 		return (EXIT_FAILURE);
-
-	// 2. read map if args check ok
 	ft_parse_map(av[1], &vars.map);
-
-	// 3. if map is validated
 	if (validate_map(&vars) != true)
 		map_error(&vars.map);
 	ft_printf("[ "GREEN"OK"RESET" ] | %s" \
@@ -32,8 +27,6 @@ int	main(int ac, char **av)
 	ft_init_textures(&vars);
 	ft_printf("[ "BLUE"GO"RESET" ] |" \
 	" Your mission is to get all the ducks and exit the map.\n");
-
-	// 4. Init MLX
 	mlx_hook(vars.win, KeyPress, KeyPressMask, &handle_key, &vars);
 	mlx_hook(vars.win, DestroyNotify, KeyPressMask, &close_window, &vars);
 	mlx_loop_hook(vars.mlx, &render, &vars);
