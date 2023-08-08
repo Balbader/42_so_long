@@ -10,9 +10,109 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	so_long
+##################################
+#   	      NAME 				 #
+##################################
+NAME				=	so_long
 
 
+##################################
+#    	    SRCS FILES			 #
+##################################
+FT_PRINTF_DIR		=	ft_printf/
+FT_PRINTF_FILES		=	ft_print_char.c \
+						ft_print_hexa.c \
+						ft_printf_nb.c \
+						ft_print_ptr.c \
+						ft_print_str.c \
+						ft_print_unsigned.c \
+						ft_printf.c
+FT_PRINTF			=	$(addprefix $(FT_PRINTF_DIR), $(FT_PRINTF_FILES))
+
+GNL_DIR				=	gnl/
+GNL_FILES			=	get_next_line.c \
+						get_next_line_utils.c
+GNL					=	$(addprefix $(GNL_DIR), $(GNL_FILES))
+
+LIBFT_DIR			=	libft/
+LIBFT_FILES			=	ft_free_tab.c \
+						ft_free_tabs.c \
+						ft_itoa.c \
+						ft_split.c \
+						ft_strdup.c \
+						ft_strjoin.c \
+						ft_strlen.c
+LIBFT				=	$(addprefix $(LIBFT_DIR), $(LIBFT_FILES))
+
+MAP_CHECK_DIR		=	map_check/
+MAP_CHECK_FILES		=	ft_check_format.c \
+						ft_check_if_open.c \
+						ft_check_path.c \
+						ft_count_content.c \
+						ft_flood_fill.c \
+						ft_validate_content.c
+MAP_CHECK			=	$(addprefix $(MAP_CHECK_DIR), $(MAP_CHECK_FILES))
+
+MAP_PARSING_DIR		=	map_parsing/
+MAP_PARSING_FILES	=	ft_parse_map.c \
+						ft_read_map.c
+MAP_PARSING			=	$(addprefix $(MAP_PARSING_DIR), $(MAP_PARSING_FILES))
+
+RENDER_DIR			=	render/
+RENDER_FILES		=	ft_confirm_move.c \
+						ft_copy_img.c \
+						ft_get_pixel.c \
+						ft_is_obstacle.c \
+						ft_move_player.c \
+						ft_print_collectible.c \
+						ft_print_moves.c \
+						ft_put_pixel.c \
+						ft_put_sprite_to_map.c \
+						ft_render.c \
+						ft_render_map.c \
+						ft_render_player.c
+RENDER				=	$(addprefix $(RENDER_DIR), $(RENDER_FILES))
+
+SET_TEXTURE_DIR		=	set_texture/
+SET_TEXTURE_FILES	=	ft_init_textures.c \
+						ft_init_textures_utils1.c \
+						ft_init_textures_utils2.c \
+						ft_init_win.c \
+						ft_load_texture_to_img.c
+SET_TEXTURE			=	$(addprefix $(SET_TEXTURE_DIR), $(SET_TEXTURE_FILES))
+
+UTILS_DIR			=	utils/
+UTILS_FILES			=	ft_check_file_ext.c \
+						ft_check_main_args.c \
+						ft_close_win.c \
+						ft_duplicate_map.c \
+						ft_find_pos.c \
+						ft_handle_key.c \
+						ft_map_error.c
+UTILS				=	$(addprefix $(UTILS_DIR), $(UTILS_FILES))
+
+
+##################################
+#   		INGREDIENTS 		 #
+##################################
+INC_DIR				=	./inc/
+INC_FILES			=	
+SRCS_DIR			=	./srcs/
+SRCS_FILES			=	$(PRINTF) \
+						$(GNL) \
+						$(LIBFT) \
+						$(MAP_CHECK) \
+						$(MAP_PARSING) \
+						$(RENDER) \
+						$(SET_TEXTURE) \
+						$(UTILS) \
+						main.c
+SRCS				=	$(addprefix $(SRCS_DIR), $(SRCS_FILES))
+SRCS				=	$(SRCS:%=$(SRCS_DIR)/%)
+
+
+##################################
+#         COMPILATION 		 	 #
+##################################
 CC		=	cc
 CFLAGS	=	-Wall -Wextra -Werror -fsanitize=address -static-libasan
-
