@@ -12,26 +12,21 @@
 
 #include "so_long.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *str1, char const *str2)
 {
-	char	*new_str;
-	size_t	tot_len;
-	size_t	i;
-	size_t	j;
+	char	*newstr;
+	int		i;
 
-	if (s1 == NULL || s2 == NULL)
-		new_str = NULL;
-	tot_len = ft_strlen(s1) + ft_strlen(s2);
-	new_str = (char *)malloc(sizeof(char) * (tot_len + 1));
-	if (!new_str)
+	i = 0;
+	if (!str1 || !str2)
 		return (NULL);
-	j = 0;
-	i = 0;
-	while (s1[i])
-		new_str[j++] = s1[i++];
-	i = 0;
-	while (s2[i])
-		new_str[j++] = s2[i++];
-	new_str[j] = '\0';
-	return (new_str);
+	newstr = malloc(sizeof(char) * ft_strlen(str1) + ft_strlen(str2) + 1);
+	if (!newstr)
+		return (NULL);
+	while (*str1)
+		newstr[i++] = *str1++;
+	while (*str2)
+		newstr[i++] = *str2++;
+	newstr[i] = '\0';
+	return (newstr);
 }

@@ -12,23 +12,16 @@
 
 #include "so_long.h"
 
-char	*ft_strdup(const char *str)
+char	*ft_strdup(const char *s)
 {
-	char	*dup;
-	size_t	str_len;
-	size_t	i;
-	size_t	j;
+	char	*d;
+	size_t	strsize;
 
-	if (!str)
-		return (NULL);
-	str_len = ft_strlen(str);
-	dup = (char *)malloc(sizeof(char) * (str_len + 1));
-	if (!dup)
-		return (NULL);
-	j = 0;
-	i = 0;
-	while (str[i])
-		dup[j++] = str[i++];
-	dup[j] = '\0';
-	return (dup);
+	strsize = ft_strlen(s);
+	d = (char *)malloc(strsize + 1);
+	if (!d)
+		return (0);
+	ft_memcpy(d, s, strsize);
+	d[strsize] = 0;
+	return (d);
 }
