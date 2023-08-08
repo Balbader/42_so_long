@@ -51,7 +51,9 @@ MAP_CHECK_FILES		:=	ft_check_format.c \
 						ft_check_path.c \
 						ft_count_content.c \
 						ft_flood_fill.c \
-						ft_validate_content.c
+						ft_map_size.c \
+						ft_validate_content.c \
+						ft_validate_map.c
 MAP_CHECK			:=	$(addprefix $(MAP_CHECK_DIR), $(MAP_CHECK_FILES))
 
 MAP_PARSING_DIR		:=	map_parsing/
@@ -96,11 +98,7 @@ UTILS				:=	$(addprefix $(UTILS_DIR), $(UTILS_FILES))
 ##################################
 #   		INGREDIENTS 		 #
 ##################################
-INC_DIR				:=	./inc/ \
-						./inc/mlx_linux/
-
-MLX					:=	./inc/mlx_linux/libmlx.a
-INC_MLX				:=	./inc/mlx_linux
+INC_DIR				:=	./inc/
 
 SRCS_DIR			:=	./srcs/
 SRCS				:=	\
@@ -112,12 +110,17 @@ SRCS				:=	\
 						$(RENDER) \
 						$(SET_TEXTURE) \
 						$(UTILS) \
-						main.c
+						so_long.c
 SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)
+
+MLX					:=	./inc/mlx_linux/libmlx.a
+INC_MLX				:=	./inc/mlx_linux/
+LIB					:=	-L./include/mlx -lXext -lX11
 
 BUILD_DIR			:=	.build
 OBJS				:=	$(SRCS:$(SRCS_DIR)/%.c=$(BUILD_DIR)/%.o)
 DEPS				:=	$(OBJS:.o=.d)
+
 
 CC					:=	cc
 CFLAGS				:=	-Wall -Wextra -Werror -fsanitize=address -static-libasan
@@ -139,12 +142,11 @@ RESET   			:= \033[0m
 ##################################
 #   		RECIPES				 #
 ##################################
-all: $(NAME)
+all: $(MLX) $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Compiling $(NAME)..."
-	@make -s -C MLX
-	$(CC) $((OBJS)) -o $(NAME)
+	$(CC) $(CFLAGS) -o $(NAME) $(LIB)
 	@echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) ready!"
 
 $(MLX):
