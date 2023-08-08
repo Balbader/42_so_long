@@ -97,6 +97,10 @@ UTILS				=	$(addprefix $(UTILS_DIR), $(UTILS_FILES))
 ##################################
 INC_DIR				=	./inc/ \
 						./inc/mlx_linux/
+
+MLX					=	./inc/mlx_linux/libmlx.a
+INC_MLX				=	./inc/mlx_linux
+
 SRCS_DIR			=	./srcs/
 SRCS				=	$(PRINTF) \
 						$(GNL) \
@@ -119,3 +123,54 @@ IFLAGS				=	$(addprefix -I, $(INC_DIR))
 
 RM					=	rm -r -f
 DIR_DUP				=	mkdir -p $(@D)
+
+
+##################################
+#   		COLORS 				 #
+##################################
+RED     = \033[0;31m
+GREEN   = \033[0;32m
+YELLOW  = \033[0;33m
+RESET   = \033[0m
+
+
+##################################
+#   		RECIPES				 #
+##################################
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Compiling $(NAME)..."
+	@make -s -C MLX
+	$(CC) $((OBJS)) -o $(NAME)
+	@echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) ready!"
+
+$(MLX):
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Compiling minilibx..."
+	@make -sC $(INC_MLX) > /dev/null 2>&1
+	@echo "[" "$(GREEN)OK$(RESET)" "] | Minilibx ready!"
+
+$(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
+	$(DIR_DUP)
+	$(CC) $(CFLAGS) $(IFLAGS) -c -o $@ $<
+
+-include $(DEPS)
+
+clean:
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing object files...$(RESET)"
+	@make -sC include/libft clean
+	@make -sC $(INC_MLX) clean > /dev/null
+	@rm -rf $(OBJ) obj
+	@echo "[" "$(GREEN)OK$(RESET)" "] | Object files removed."
+
+fclean: clean
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing binary files...$(RESET)"
+	@make -sC include/libft fclean
+	@rm -rf $(NAME)
+	@echo "[" "$(GREEN)OK$(RESET)" "] | Binary file removed."
+
+re:
+	$(MAKE) fclean
+	$(MAKE) all
+
+.PHONY: all clean fclean re
