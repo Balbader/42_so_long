@@ -12,20 +12,36 @@
 
 #include "so_long.h"
 
-static int	ft_get_n_len(int n)
+char	*ft_strrev(char *str)
+{
+	int		i;
+	int		size;
+	char	swap;
+
+	i = 0;
+	size = ft_strlen(str) - 1;
+	while (size > i)
+	{
+		swap = str[i];
+		str[i] = str[size];
+		str[size] = swap;
+		size--;
+		i++;
+	}
+	return (str);
+}
+
+int	ft_intlen(int n)
 {
 	int	len;
 
 	len = 0;
-	if (n < 0)
-	{
-		n *= -1;
+	if (n <= 0)
 		len++;
-	}
-	while (n > 0)
+	while (n)
 	{
-		n /= 10;
 		len++;
+		n = n / 10;
 	}
 	return (len);
 }
@@ -33,25 +49,26 @@ static int	ft_get_n_len(int n)
 char	*ft_itoa(int n)
 {
 	char	*str;
-	int		len;
 	int		i;
+	int		sign;
 
-	len = ft_get_n_len(n);
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (NULL);
-	i = len - 1;
+	i = 0;
+	sign = 1;
 	if (n < 0)
+		sign = -1;
+	str = (char *)malloc(sizeof(char) * ft_intlen(n) + 1);
+	if (!str)
+		return (0);
+	if (n == 0)
+		str[i++] = '0';
+	while (n != 0)
 	{
-		str[0] = '-';
-		n *= -1;
+		str[i] = (n % 10) * sign + '0';
+		i++;
+		n = n / 10;
 	}
-	while (n > 0)
-	{
-		str[i] = (n % 10 + '0');
-		i--;
-		n /= 10;
-	}
-	str[len] = '\0';
-	return (str);
+	if (sign == -1)
+		str[i++] = '-';
+	str[i] = '\0';
+	return (ft_strrev(str));
 }
