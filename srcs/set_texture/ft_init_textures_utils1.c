@@ -15,23 +15,23 @@
 void	ft_set_map_exit(t_vars *vars)
 {
 	vars->map.map_exit = ft_load_texture_to_img(vars, \
-	"resources/textures/XPM/STAIRS.xpm");
+	"assets/textures/XPM/STAIRS.xpm");
 }
 
 void	ft_set_empty_space(t_vars *vars)
 {
 	vars->map.empty_space = ft_load_texture_to_img(vars, \
-	"resources/textures/XPM/FLOOR.xpm");
+	"assets/textures/XPM/FLOOR.xpm");
 }
 
 void	ft_set_collectibles(t_vars *vars)
 {
 	vars->map.collectible = ft_load_texture_to_img(vars, \
-	"resources/textures/XPM/DUCK.xpm");
+	"assets/textures/XPM/DUCK.xpm");
 }
 
 void	ft_set_wall(t_vars *vars)
 {
 	vars->map.wall = ft_load_texture_to_img(vars, \
-	"resources/textures/XPM/WALL.xpm");
+	"assets/textures/XPM/WALL.xpm");
 }

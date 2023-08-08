@@ -15,29 +15,29 @@
 void	ft_set_pc_up(t_vars *vars)
 {
 	vars->map.pc_up = ft_load_texture_to_img(vars, \
-	"resources/textures/XPM/PC_UP.xpm");
+	"assets/textures/XPM/PC_UP.xpm");
 }
 
 void	ft_set_pc_down(t_vars *vars)
 {
 	vars->map.pc_down = ft_load_texture_to_img(vars, \
-	"resources/textures/XPM/PC_DOWN.xpm");
+	"assets/textures/XPM/PC_DOWN.xpm");
 }
 
 void	ft_set_pc_left(t_vars *vars)
 {
 	vars->map.pc_left = ft_load_texture_to_img(vars, \
-	"resources/textures/XPM/PC_LEFT.xpm");
+	"assets/textures/XPM/PC_LEFT.xpm");
 }
 
 void	ft_set_pc_right(t_vars *vars)
 {
 	vars->map.pc_right = ft_load_texture_to_img(vars, \
-	"resources/textures/XPM/PC_RIGHT.xpm");
+	"assets/textures/XPM/PC_RIGHT.xpm");
 }
 
 void	ft_set_player(t_vars *vars)
 {
 	vars->player.img = ft_load_texture_to_img(vars, \
-	"resources/textures/PLAYER/XPM/NORMAL/1.xpm");
+	"assets/textures/PLAYER/XPM/NORMAL/1.xpm");
 }
