@@ -12,7 +12,7 @@
 
 NAME	=	so_long
 
-CC		=	cc
 
+CC		=	cc
 CFLAGS	=	-Wall -Wextra -Werror -fsanitize=address -static-libasan
 
