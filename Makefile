@@ -38,6 +38,7 @@ LIBFT_DIR			:=	libft/
 LIBFT_FILES			:=	ft_free_tab.c \
 						ft_free_tabs.c \
 						ft_itoa.c \
+						ft_memcpy.c \
 						ft_split.c \
 						ft_strdup.c \
 						ft_strjoin.c \
