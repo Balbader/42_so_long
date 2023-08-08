@@ -110,12 +110,12 @@ SRCS				:=	\
 						$(RENDER) \
 						$(SET_TEXTURE) \
 						$(UTILS) \
-						so_long.c
+						main.c
 SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)
 
-MLX					:=	./inc/mlx_linux/libmlx.a
+MLX					:=	libmlx.a
 INC_MLX				:=	./inc/mlx_linux/
-LIB					:=	-L./include/mlx -lXext -lX11
+LIB					:=	-L ./inc/mlx_linux -lXext -lX11
 
 BUILD_DIR			:=	.build
 OBJS				:=	$(SRCS:$(SRCS_DIR)/%.c=$(BUILD_DIR)/%.o)
@@ -142,11 +142,11 @@ RESET   			:= \033[0m
 ##################################
 #   		RECIPES				 #
 ##################################
-all: $(MLX) $(NAME)
+all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(MLX) $(OBJS)
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Compiling $(NAME)..."
-	$(CC) $(CFLAGS) -o $(NAME) $(LIB)
+	$(CC) $(CFLAGS) -o $(LIB) $(NAME) 
 	@echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) ready!"
 
 $(MLX):
@@ -164,7 +164,7 @@ clean:
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing object files...$(RESET)"
 	@make -sC $(INC_MLX) clean > /dev/null
 	$(RM) $(BUILD_DIR) $(DEPS)
-	# @rm -rf $(OBJ) obj
+	@rm -rf $(OBJ) obj
 	@echo "[" "$(GREEN)OK$(RESET)" "] | Object files removed."
 
 fclean: clean
