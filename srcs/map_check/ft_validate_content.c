@@ -23,7 +23,7 @@ bool	ft_validate_content(t_map *map)
 		x = 0;
 		while (map->grid[y][x])
 		{
-			if (!map_content_count(map, map->grid[y][x]))
+			if (!ft_count_content(map, map->grid[y][x]))
 				return (false);
 			x++;
 		}

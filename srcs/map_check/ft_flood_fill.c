@@ -41,5 +41,5 @@ void	ft_flood_fill(int y, int x, t_map *map)
 	if (fill(y - 1, x, map))
 		ft_flood_fill(y - 1, x, map);
 	if (fill(y + 1, x, map))
-		flood(y + 1, x, map);
+		ft_flood_fill(y + 1, x, map);
 }

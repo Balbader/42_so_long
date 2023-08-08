@@ -19,8 +19,8 @@ bool	ft_check_path(t_map *map)
 
 	map_copy = *map;
 	map_copy.flood.exit_reached = false;
-	map_copy.grid = duplicate_map(map);
-	start_pos = find_in_map(map_copy.grid, MAP_START);
+	map_copy.grid = ft_duplicate_map(map);
+	start_pos = ft_find_pos(map_copy.grid, MAP_START);
 	if (!map_copy.grid)
 		return (false);
 	ft_flood_fill(start_pos.y, start_pos.x, &map_copy);
