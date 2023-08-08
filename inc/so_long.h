@@ -17,10 +17,19 @@
 # include "structures.h"
 # include "define.h"
 
+# include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
 # include <stddef.h>
 # include <X11/X.h>
+# include <limits.h>
+# include <stdarg.h>
+# include <stdint.h>
+# include <fcntl.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 
 /* ft_flood_fill */
