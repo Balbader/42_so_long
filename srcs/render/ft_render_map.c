@@ -24,7 +24,7 @@ void	ft_render_map(t_vars *vars)
 		while ((size_t)pos.x < vars->map.width)
 		{
 			current_sprite = vars->map.grid[(int)pos.y][(int)pos.x];
-			put_sprite(vars, pos, current_sprite);
+			ft_put_sprite_to_map(vars, pos, current_sprite);
 			pos.x++;
 		}
 		pos.x = 0;

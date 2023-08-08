@@ -14,7 +14,7 @@
 
 void	ft_move_player(t_map *map, t_player *player, int x, int y)
 {
-	if (is_obstacle(map->grid[player->pos.y + y][player->pos.x + x]) ||
+	if (ft_is_obstacle(map->grid[player->pos.y + y][player->pos.x + x]) ||
 	(map->grid[player->pos.y + y][player->pos.x + x] == MAP_EXIT && \
 	map->collectible_count != player->collectible_count))
 		return ;

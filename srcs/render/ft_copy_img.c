@@ -24,9 +24,9 @@ void	ft_copy_img(t_img img, t_pos pos, t_img *final_img)
 		point.x = 0;
 		while (point.x < TILE_SIZE)
 		{
-			color = get_pixel(&img, point.x, point.y);
+			color = ft_get_pixel(&img, point.x, point.y);
 			if (color && color != 4278190080)
-				put_pixel(final_img, (pos.x * TILE_SIZE) + point.x, \
+				ft_put_pixel(final_img, (pos.x * TILE_SIZE) + point.x, \
 				(pos.y * TILE_SIZE) + point.y, (int)color);
 			point.x++;
 		}
