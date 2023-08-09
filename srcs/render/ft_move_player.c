@@ -23,10 +23,12 @@ void	ft_move_player(t_map *map, t_player *player, int x, int y)
 		map->grid[player->pos.y + y][player->pos.x + x] = EMPTY_SPACE;
 	if (map->grid[player->pos.y + y][player->pos.x + x] == MAP_EXIT)
 	{
+		/*
 		ft_printf("[ "PURPLE"GG"RESET" ] | You finished the map!\n" \
 			"[ "PURPLE"GG"RESET" ] | Ducks collected: %d\n[ "PURPLE"GG"RESET, \
 			player->collectible_count);
 		ft_printf(" ] | Total steps: %d\n", ++player->move_count);
+		*/
 		exit(EXIT_SUCCESS);
 	}
 	player->pos.y += y;
