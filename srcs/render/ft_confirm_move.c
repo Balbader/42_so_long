@@ -18,24 +18,24 @@ void	ft_confirm_move(t_vars *vars)
 	{
 		ft_move_player(&(vars->map), &(vars->player), 0, -1);
 		vars->player.move.up = 0;
-		// ft_printf("Count : %d\n", vars->player.move_count);
+		ft_printf("Count : %d\n", vars->player.move_count);
 	}
 	if (vars->player.move.down == true)
 	{
 		ft_move_player(&(vars->map), &(vars->player), 0, 1);
 		vars->player.move.down = 0;
-		// ft_printf("Count : %d\n", vars->player.move_count);
+		ft_printf("Count : %d\n", vars->player.move_count);
 	}
 	if (vars->player.move.left == true)
 	{
 		ft_move_player(&(vars->map), &(vars->player), -1, 0);
 		vars->player.move.left = 0;
-		// ft_printf("Count : %d\n", vars->player.move_count);
+		ft_printf("Count : %d\n", vars->player.move_count);
 	}
 	if (vars->player.move.right == true)
 	{
 		ft_move_player(&(vars->map), &(vars->player), 1, 0);
 		vars->player.move.right = 0;
-		// ft_printf("Count : %d\n", vars->player.move_count);
+		ft_printf("Count : %d\n", vars->player.move_count);
 	}
 }
