@@ -19,7 +19,8 @@ void	ft_move_player(t_map *map, t_player *player, int x, int y)
 		&& map->collectible_count != player->collectible_count))
 		return ;
 
-	if (map->grid[player->pos.y + y][player->pos.x + x] == COLLECTIBLE && ++player->collectible_count)
+	if (map->grid[player->pos.y + y][player->pos.x + x] == COLLECTIBLE \
+		&& ++player->collectible_count)
 		map->grid[player->pos.y + y][player->pos.x + x] = EMPTY_SPACE;
 
 	if (map->grid[player->pos.y + y][player->pos.x + x] == MAP_EXIT)
