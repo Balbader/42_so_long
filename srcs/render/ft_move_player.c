@@ -14,19 +14,19 @@
 
 void	ft_move_player(t_map *map, t_player *player, int x, int y)
 {
-	if (ft_is_obstacle(map->grid[player->pos.y + y][player->pos.x + x]) \
-		|| (map->grid[player->pos.y + y][player->pos.x + x] == MAP_EXIT \
+	if (ft_is_obstacle(map->grid[player->pos.y + y][player->pos.x + x])
+		|| (map->grid[player->pos.y + y][player->pos.x + x] == MAP_EXIT
 		&& map->collectible_count != player->collectible_count))
 		return ;
 
-	if (map->grid[player->pos.y + y][player->pos.x + x] == COLLECTIBLE \
+	if (map->grid[player->pos.y + y][player->pos.x + x] == COLLECTIBLE
 		&& ++player->collectible_count)
 		map->grid[player->pos.y + y][player->pos.x + x] = EMPTY_SPACE;
 
 	if (map->grid[player->pos.y + y][player->pos.x + x] == MAP_EXIT)
 	{
-		ft_printf("[ "PURPLE"GG"RESET" ] | You finished the map!\n" \
-			"[ "PURPLE"GG"RESET" ] | Ducks collected: %d\n[ "PURPLE"GG"RESET, \
+		ft_printf("[ "PURPLE"GG"RESET" ] | You finished the map!\n"
+			"[ "PURPLE"GG"RESET" ] | Ducks collected: %d\n[ "PURPLE"GG"RESET,
 			player->collectible_count);
 		ft_printf(" ] | Total steps: %d\n", ++player->move_count);
 		exit(EXIT_SUCCESS);
