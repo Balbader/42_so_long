@@ -19,7 +19,6 @@ void	ft_print_moves(t_vars	*vars, t_pos pos, int steps)
 
 	steps_str = ft_itoa(steps);
 	new_str = ft_strjoin("Steps: ", steps_str);
-	// ft_printf("Count : %d\n", vars->player.move_count);
 	mlx_string_put(vars->mlx, vars->win, pos.x, pos.y, BLACK_PIXEL, new_str);
 	ft_free_tabs(2, steps_str, new_str);
 }
