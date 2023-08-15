@@ -15,5 +15,5 @@
 void	ft_set_player(t_vars *vars)
 {
 	vars->player.img = ft_load_texture_to_img(vars, \
-	"assets/sprites/player1.xpm");
+	"assets/sprites/dino.xpm");
 }
