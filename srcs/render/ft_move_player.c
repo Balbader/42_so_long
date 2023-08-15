@@ -34,4 +34,5 @@ void	ft_move_player(t_map *map, t_player *player, int x, int y)
 	player->pos.y += y;
 	player->pos.x += x;
 	player->move_count++;
+	ft_printf("Count : %d\n", player->move_count);
 }
