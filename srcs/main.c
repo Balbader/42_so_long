@@ -21,11 +21,11 @@ int	main(int ac, char **av)
 	ft_parse_map(av[1], &vars.map);
 	if (ft_validate_map(&vars) != true)
 		ft_map_error(&vars.map);
-	ft_printf("[ "GREEN"OK"RESET" ] | %s" 
+	ft_printf("[ "GREEN"OK"RESET" ] | %s" \
 		" is a valid map!\n", av[1]);
 	ft_init_win(&vars);
 	ft_init_textures(&vars);
-	ft_printf("[ "BLUE"GO"RESET" ] |" 
+	ft_printf("[ "BLUE"GO"RESET" ] |" \
 		" Your mission is to get all the ducks and exit the map.\n");
 	mlx_hook(vars.win, KeyPress, KeyPressMask, &ft_handle_key, &vars);
 	mlx_hook(vars.win, DestroyNotify, KeyPressMask, &ft_close_window, &vars);
