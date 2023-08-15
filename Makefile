@@ -124,7 +124,7 @@ DEPS				:=	$(OBJS:.o=.d)
 
 
 CC					:=	cc
-CFLAGS				:=	-Wall -Wextra -Werror -fsanitize=address -static-libasan
+CFLAGS				:=	-Wall -Wextra -Werror -fsanitize=address -static-libsan
 IFLAGS				:=	$(addprefix -I, $(INC_DIR))
 
 RM					:=	rm -r -f
