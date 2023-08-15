@@ -68,7 +68,6 @@ RENDER_FILES		:=	ft_confirm_move.c \
 						ft_get_pixel.c \
 						ft_is_obstacle.c \
 						ft_move_player.c \
-						ft_print_moves.c \
 						ft_put_pixel.c \
 						ft_put_sprite_to_map.c \
 						ft_render.c \
