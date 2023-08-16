@@ -16,6 +16,17 @@ int	ft_close_window(t_vars *vars)
 {
 	ft_printf("[ " RED "XX" RESET " ] |" \
 		" You exited the game before finishing :(\n");
+	mlx_clear_window(vars->mlx, vars->win);
+	mlx_destroy_image(vars->mlx, vars->player.img.img);
+	mlx_destroy_image(vars->mlx, vars->map.wall.img);
+	mlx_destroy_image(vars->mlx, vars->map.mid_wall.img);
+	mlx_destroy_image(vars->mlx, vars->map.floor.img);
+	mlx_destroy_image(vars->mlx, vars->map.map_start.img);
+	mlx_destroy_image(vars->mlx, vars->map.map_exit.img);
+	mlx_destroy_image(vars->mlx, vars->map.collectible.img);
 	mlx_destroy_window(vars->mlx, vars->win);
+	mlx_destroy_display(vars->mlx);
+	free(vars->mlx);
+	free(vars);
 	exit (0);
 }
