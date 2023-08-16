@@ -59,7 +59,6 @@ typedef struct s_map
 	t_img			mid_wall;
 	t_img			floor;
 	t_img			map_exit;
-	t_img			map_start;
 	t_img			collectible;
 	t_flood			flood;
 }				t_map;
