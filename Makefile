@@ -37,6 +37,7 @@ GNL					:=	$(addprefix $(GNL_DIR), $(GNL_FILES))
 LIBFT_DIR			:=	libft/
 LIBFT_FILES			:=	ft_free_tab.c \
 						ft_free_tabs.c \
+						ft_free_map.c \
 						ft_itoa.c \
 						ft_memcpy.c \
 						ft_split.c \
@@ -126,7 +127,7 @@ DEPS				:=	$(OBJS:.o=.d)
 
 
 CC					:=	cc
-CFLAGS				:=	-Wall -Wextra -Werror -fsanitize=address -static-libsan
+CFLAGS				:=	-Wall -Wextra -Werror -g3 # -fsanitize=address
 IFLAGS				:=	$(addprefix -I, $(INC_DIR))
 
 RM					:=	rm -r -f
