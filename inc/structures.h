@@ -96,4 +96,4 @@ typedef struct s_vars
 	t_img			final_image;
 }					t_vars;
 
-#endif // !STRUCTURES_H
+#endif
