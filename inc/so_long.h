@@ -49,13 +49,13 @@ char			*ft_read_map(int fd);
 
 /* render */
 int				ft_render(t_vars *vars);
+int				ft_move_player(t_map *map, t_player *player, int x, int y);
 unsigned int	ft_get_pixel(t_img *img, int x, int y);
 void			ft_render_player(t_vars *vars);
 void			ft_render_map(t_vars *vars);
 void			ft_put_sprite_to_map(t_vars *vars, t_pos pos, char c);
 void			ft_put_pixel(t_img *img, int x, int y, int color);
 void			ft_copy_img(t_img img, t_pos pos, t_img *final_img);
-void			ft_move_player(t_map *map, t_player *player, int x, int y);
 void			ft_confirm_move(t_vars *vars);
 bool			ft_is_obstacle(char grid_value);
 
