@@ -14,24 +14,29 @@
 
 void	ft_confirm_move(t_vars *vars)
 {
+	int check;
+
+	check = 0;
 	if (vars->player.move.up == true)
 	{
-		ft_move_player(&(vars->map), &(vars->player), 0, -1);
+		check = ft_move_player(&(vars->map), &(vars->player), 0, -1);
 		vars->player.move.up = 0;
 	}
 	if (vars->player.move.down == true)
 	{
-		ft_move_player(&(vars->map), &(vars->player), 0, 1);
+		check = ft_move_player(&(vars->map), &(vars->player), 0, 1);
 		vars->player.move.down = 0;
 	}
 	if (vars->player.move.left == true)
 	{
-		ft_move_player(&(vars->map), &(vars->player), -1, 0);
+		check = ft_move_player(&(vars->map), &(vars->player), -1, 0);
 		vars->player.move.left = 0;
 	}
 	if (vars->player.move.right == true)
 	{
-		ft_move_player(&(vars->map), &(vars->player), 1, 0);
+		check = ft_move_player(&(vars->map), &(vars->player), 1, 0);
 		vars->player.move.right = 0;
 	}
+	if (check == 1)
+		ft_close_window(vars);
 }
