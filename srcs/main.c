@@ -31,7 +31,6 @@ int	main(int ac, char **av)
 	mlx_hook(vars.win, DestroyNotify, KeyPressMask, &ft_close_window, &vars);
 	mlx_loop_hook(vars.mlx, &ft_render, &vars);
 	mlx_loop(vars.mlx);
-	ft_free_tab(vars.map.grid);
-	ft_free_tabs(2, vars.map.map_path, vars.mlx);
+	free(vars.mlx);
 	return (0);
 }
