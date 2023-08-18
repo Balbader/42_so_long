@@ -39,6 +39,7 @@ char	*malloc_word(const char *s, char c)
 	i = 0;
 	while (s[i] && s[i] != c)
 		i++;
+	word = NULL;
 	word = (char *)malloc(sizeof(char) * (i + 1));
 	if (!word)
 		return (NULL);
@@ -57,6 +58,7 @@ char	**ft_split(char const *s, char c)
 	size_t		i;
 	char		**splited;
 
+	splited = NULL;
 	splited = (char **)malloc(sizeof(char *) * (count_words(s, c) + 1));
 	if (!splited || !s)
 		return (0);
