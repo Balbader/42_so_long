@@ -23,8 +23,11 @@ int	ft_close_window(t_vars *vars)
 	mlx_destroy_image(vars->mlx, vars->map.floor.img);
 	mlx_destroy_image(vars->mlx, vars->map.map_exit.img);
 	mlx_destroy_image(vars->mlx, vars->map.collectible.img);
+	//destriy final_img
 	mlx_destroy_window(vars->mlx, vars->win);
 	mlx_destroy_display(vars->mlx);
+	ft_free_tab(vars->map.grid);
+	ft_free_tabs(2, vars->map.map_path, vars->mlx);
 	free(vars->mlx);
 	exit (0);
 }
