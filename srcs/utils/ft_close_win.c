@@ -14,8 +14,6 @@
 
 int	ft_close_window(t_vars *vars)
 {
-	ft_printf("[ " RED "XX" RESET " ] |" \
-		" You exited the game before finishing :(\n");
 	mlx_clear_window(vars->mlx, vars->win);
 	mlx_destroy_image(vars->mlx, vars->player.img.img);
 	mlx_destroy_image(vars->mlx, vars->map.wall.img);
@@ -28,6 +26,5 @@ int	ft_close_window(t_vars *vars)
 	mlx_destroy_display(vars->mlx);
 	ft_free_tab(vars->map.grid);
 	ft_free_tabs(2, vars->map.map_path, vars->mlx);
-	// free(vars->mlx);
 	exit (0);
 }
