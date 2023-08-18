@@ -56,6 +56,7 @@ char	*ft_itoa(int n)
 	sign = 1;
 	if (n < 0)
 		sign = -1;
+	str = NULL;
 	str = (char *)malloc(sizeof(char) * ft_intlen(n) + 1);
 	if (!str)
 		return (0);
