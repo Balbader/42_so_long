@@ -24,7 +24,6 @@ void	ft_parse_map(const char *path_to_map, t_map *map)
 	map->map_path = ft_strdup(path_to_map);
 	if (!map->map_path)
 	{
-		// ft_free_map(map->map_path);
 		free(map->map_path);
 		return ;
 	}
