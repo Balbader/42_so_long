@@ -19,6 +19,8 @@ char	*ft_read_map(int fd)
 	char	*temp;
 
 	text = ft_strdup("");
+	if (!text)
+		return (NULL);
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
