@@ -14,7 +14,7 @@
 
 void	ft_confirm_move(t_vars *vars)
 {
-	int check;
+	int	check;
 
 	check = 0;
 	if (vars->player.move.up == true)
