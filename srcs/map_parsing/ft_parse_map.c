@@ -34,8 +34,8 @@ void	ft_parse_map(const char *path_to_map, t_map *map)
 		return ;
 	}
 	map->grid = ft_split(text, '\n');
+	free(text);
 	if (!map->grid[0])
 		ft_map_error(map);
-	free(text);
 	close(fd);
 }
